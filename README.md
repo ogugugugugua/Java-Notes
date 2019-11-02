@@ -1,2 +1,2 @@
 # Java-Notes
-## Notes about the learning processus of Java
+## Notes about the learning process of Java
