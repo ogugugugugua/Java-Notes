@@ -1,7 +1,7 @@
 #<center> Exception
 <center>Yulin XIE</center>
 
-####1.try/catch
+####  1.try/catch
 In order to avoid predictable problems, we are forced to use try/catch for some commands like `FileInputStream`.
 ```java
 package exception;
@@ -31,7 +31,7 @@ public class TestException {
 ```
 We can surely use something like `catch(FileNotFoundException|ParseException e)` to include several excecptions at a time and in the block we then use something like `if(e instanceof FileNotFoundException){...}` to decouple the combined exception. Instead of using several `catch` after the `try`.
 
-####2.Usage of `throws`
+#### 2.Usage of `throws`
 
 `throws` appears on the declation of a function to showcase a posibility of throwing an exception, which will not necessarily happen. On the contary, when we use `throw` we are indeed throwing an exception.
 
@@ -72,7 +72,7 @@ public class TestException {
 ```
 In the above case, we throw an exception (if needed) in method2 and in we catch it in method2.
 
-####3.try/catch/finally
+#### 3.try/catch/finally
 
 It is NOT good to write codes like this because it will cause ambiguity to what will return in the end:
 ```java
@@ -127,7 +127,7 @@ public static int method(){
 As for the two exemples aboved, we will go through `return1()` then `return3()`, but at the end it will return result of `return3()` as shown in the better way.
 
 
-####4.Classification
+#### 4.Classification
 1. CheckedException(e.g. FileNotFoundException,either _try/catch_ either _throws exception_ in declation)
 2. RuntimeException
 (e.g. ArithmeticException / ArrayIndexOutOfBoundsException / NullPointerException, Not obligated to use try/catch)
@@ -137,14 +137,14 @@ As for the two exemples aboved, we will go through `return1()` then `return3()`,
 >- 运行时异常是不可查异常，不需要进行显式的捕捉
 >- 非运行时异常是可查异常，必须进行显式的捕捉，或者抛出
 
-####5.throwable
+#### 5.throwable
 throwable is the father class of error/exception. It's possible to throw a `throwable` in a function but it will also bring ambiguity because we have no idea it will be which kind of problem, so try to be specific about the exception.
 <center>
 
 ![742](https://user-images.githubusercontent.com/17522733/68072779-867a0000-fd89-11e9-8a6a-2ed4787268ea.png)
 </center>
 
-####6.Self-defined exception
+#### 6.Self-defined exception
 We can define our personalized exception by inheriting class exception, which may look like this:
 ```java
 package com.company;
