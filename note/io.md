@@ -100,9 +100,7 @@ public class TestStream {
     public static void main(String[] args) {
         try {
             File f = new File("d:/xyz/abc/def/lol2.txt");
-
             //因为默认情况下，文件系统中不存在 d:\xyz\abc\def，所以输出会失败
-
             //首先获取文件所在的目录
             File dir = f.getParentFile();
             //如果该目录不存在，则创建该目录
@@ -110,21 +108,59 @@ public class TestStream {
 //              dir.mkdir(); //使用mkdir会抛出异常，因为该目录的父目录也不存在
                 dir.mkdirs(); //使用mkdirs则会把不存在的目录都创建好
             }
-
             byte data[] = { 88, 89 };
-
             FileOutputStream fos = new FileOutputStream(f);
-
             fos.write(data);
-
             fos.close();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }
 ```
 
-#### 4.
+#### 4.Tear down file into several parts
+Essence: read the file from hard disk into memory then divide it into whatever we want.
+
+#### 5.Close Stream in the right way
+- primitive way:
+we close all the FileInputStream/FileOutputStream in the `finally` block to avoid forgetting to close them in `try`/`catch`
+```java
+static public void read(File f){
+        FileInputStream fis = null;//make sure that it is here insdead of in the 'try' block
+        try{
+            fis = new FileInputStream(f);//initialize here
+            byte[] data = new byte[(int) f.length()];
+            fis.read(data);//read data like this
+            for(byte b:data)
+                System.out.println(b);
+        }catch (IOException e){
+            e.printStackTrace();
+        }finally {
+            if(fis!=null){
+                try { //need a 'try' block to enable the close manipulation
+                    fis.close(); //we close the FileInputStream here
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
+        }
+```
+- avanced way(try-with-resources):
+we do everything in the `try(...)` block, so called __AutoCloseable__ :
+```java
+static public void read_avanced(File f){
+        //把流定义在try()里,try,catch或者finally结束的时候，会自动关闭
+        try(FileInputStream fis = new FileInputStream(f)){
+            byte[] data = new byte[(int) f.length()];
+            fis.read(data);
+            for(byte b:data)
+                System.out.println(b);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+```
+
+
+#### 未完待续....
