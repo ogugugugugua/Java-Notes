@@ -1,4 +1,4 @@
-# <center> List </center>
+# <center> SET </center>
 <center>Yulin XIE </center>
 
 #### 1.Basic manipulations about a List
@@ -108,7 +108,7 @@
 
 
 
-#### Generic
+#### 2.Generic
 If we do this:
 ```java
 List heros = new ArrayList();
@@ -185,7 +185,7 @@ public class generic {
     }
 }
 ```
-#### Walk through a list
+#### 3.Walk through a list
 - avanced for loop:
 ``` java
         //增强型for循环
@@ -216,3 +216,68 @@ public class generic {
 
 ![806](https://user-images.githubusercontent.com/17522733/68083728-8c74ed00-fe2c-11e9-861f-61aaa9da5187.png)
 </center>
+
+#### Exercise
+>首先初始化一个Hero集合，里面放100个Hero对象，名称分别是从
+hero 0
+hero 1
+hero 2
+...
+hero 99.
+>通过遍历的手段，删除掉名字编号是8的倍数的对象
+
+#### ___NOTE:___
+
+If we use `testHero.remove(temp);` while reading this List, there will be an `java.util.ConcurrentModificationException` Error:
+https://www.cnblogs.com/dolphin0520/p/3933551.html
+
+Method1:
+```java
+        List<Hero> testHero = new ArrayList<Hero>();
+        // 放5个Hero进入容器
+        for (int i = 0; i < 99; i++) {
+            testHero.add(new Hero("hero name " + i));
+        }
+        for(Iterator<Hero> iterator = testHero.iterator();iterator.hasNext();){
+            Hero temp = iterator.next();
+//            wrong
+//            char index = temp.name.charAt(temp.name.length() - 1);
+            int index = Integer.parseInt(temp.name.substring(10));
+            if(index%8==0){
+//                testHero.remove(temp);//wrong
+                // Exception in thread "main" java.util.ConcurrentModificationException
+                //	at java.base/java.util.ArrayList$Itr.checkForComodification(ArrayList.java:1042)
+                //	at java.base/java.util.ArrayList$Itr.next(ArrayList.java:996)
+                //	at com.company.generic.main(generic.java:71)
+//                https://www.cnblogs.com/dolphin0520/p/3933551.html
+                iterator.remove();
+
+            }
+        }
+        for(Iterator<Hero> iterator = testHero.iterator();iterator.hasNext();){
+            System.out.println(iterator.next());
+        }
+```
+Method2:
+```java
+        testHero.clear();
+        for (int i = 0; i < 99; i++) {
+            testHero.add(new Hero("hero name " + i));
+        }
+        System.out.println(testHero);
+        List<Hero> deleteHero = new ArrayList<>(); //use another List to store the objects needed to be deleted
+        for(Iterator<Hero> iterator = testHero.iterator();iterator.hasNext();){
+            Hero temp = iterator.next();
+//            char index = temp.name.charAt(temp.name.length() - 1); //wrong
+            int index = Integer.parseInt(temp.name.substring(10));
+            if(index%8==0&&index>0){
+                deleteHero.add(temp);
+            }
+        }
+        testHero.removeAll(deleteHero);
+        System.out.println(testHero);
+```
+
+
+#### Other sets
+To be continued...
