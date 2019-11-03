@@ -99,15 +99,12 @@ public class Main {
             e.printStackTrace();
         }
 
-//        try{//clear
-//            System.out.println("================");
-//            heros.clear();
-//            System.out.println(heros);
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
-         try {
-
-         }
+        try{//clear
+            System.out.println("================");
+            heros.clear();
+            System.out.println(heros);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
      }
 }
