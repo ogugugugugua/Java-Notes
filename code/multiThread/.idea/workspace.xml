@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="53193a70-4fa7-4309-963f-e04d07b4cdc7" name="Default Changelist" comment="" />
+    <list default="true" id="53193a70-4fa7-4309-963f-e04d07b4cdc7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/company/DeadLock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Synchronize.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/WaitNotify.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/WaitNotify2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/Battle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/Battle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/Hero.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/Hero.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/Methods.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/Methods.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/Search_java_file.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/Search_java_file.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/TestSearchJavaFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/TestSearchJavaFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/multiThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/multiThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Hero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../note/multiThread.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../note/multiThread.md" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,11 +34,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="676" />
-    <option name="width" value="697" />
-    <option name="height" value="775" />
   </component>
   <component name="ProjectId" id="1TNO3Y1JON6XWNyJudjPyVRMZ4c" />
   <component name="PropertiesComponent">
@@ -39,19 +51,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TestSearchJavaFile">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.Main" />
-      <module name="multiThread" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Search_java_file" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.Search_java_file" />
+  <component name="RunManager" selected="Application.WaitNotify2">
+    <configuration name="DeadLock" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.DeadLock" />
       <module name="multiThread" />
       <extension name="coverage">
         <pattern>
@@ -63,8 +65,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestSearchJavaFile" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.TestSearchJavaFile" />
+    <configuration name="Synchronize" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.Synchronize" />
       <module name="multiThread" />
       <extension name="coverage">
         <pattern>
@@ -72,20 +74,57 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WaitNotify" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.WaitNotify" />
+      <module name="multiThread" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WaitNotify2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.WaitNotify2" />
+      <module name="multiThread" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test" />
+      <module name="multiThread" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
-      <item itemvalue="Application.Search_java_file" />
-      <item itemvalue="Application.TestSearchJavaFile" />
+      <item itemvalue="Application.Synchronize" />
+      <item itemvalue="Application.test" />
+      <item itemvalue="Application.DeadLock" />
+      <item itemvalue="Application.WaitNotify" />
+      <item itemvalue="Application.WaitNotify2" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TestSearchJavaFile" />
-        <item itemvalue="Application.Search_java_file" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.WaitNotify2" />
+        <item itemvalue="Application.WaitNotify" />
+        <item itemvalue="Application.test" />
+        <item itemvalue="Application.DeadLock" />
+        <item itemvalue="Application.Synchronize" />
       </list>
     </recent_temporary>
   </component>
@@ -107,7 +146,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

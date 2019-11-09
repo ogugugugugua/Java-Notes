@@ -50,11 +50,39 @@ public class Main {
 //        thread5.start();
 //        thread6.start();
 
+          Thread thread7 = new Thread(){
+              public void run(){
+                  int seconds = 0;
+                  while(seconds<5){
+                      try {
+                          Thread.sleep(1000);
+                      } catch (InterruptedException e) {
+                          e.printStackTrace();
+                      }
+                      seconds++;
+                      System.out.println("Thread 7 Seconds: "+seconds);
+                  }
+              }
+          };
+          thread7.setDaemon(true);
+          thread7.start();
 
-        File file = new File("HelloWorld.java");
-        String fileName = file.getName();
-        String suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
-        System.out.println(suffix);
+
+          Thread thread8 = new Thread(){
+              public void run(){
+                  int seconds = 0;
+                  while(seconds<5){
+                      try{
+                          Thread.sleep(1000);
+                      }catch (Exception e){
+                          e.printStackTrace();
+                      }
+                      seconds++;
+                      System.out.println("Thread 8 Seconds: "+seconds);
+                  }
+              }
+          };
+//          thread8.start();
 
     }
 }

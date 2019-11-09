@@ -5,6 +5,11 @@ public class Hero {
     int damage;
     float hp;
     String name;
+
+    public Hero() {
+
+    }
+
     public void attackHero(Hero h){
         if(!h.isDead()&&!this.isDead()){
             try{
