@@ -1,26 +1,30 @@
-package com. company;
+package com.company;
+import java.io.Serializable;
 
 public class Hero {
-    public float hp;
-    public String name;
-    public int damage;
-
+    int damage;
+    float hp;
+    String name;
     public void attackHero(Hero h){
-        try{
-            Thread.sleep(1000);
-        }catch (InterruptedException e){
-            e.printStackTrace();
+        if(!h.isDead()&&!this.isDead()){
+            try{
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            h.hp -= this.damage;
+            System.out.format("%s 正在攻击 %s, %s的血变成了 %.0f%n",name,h.name,h.name,h.hp);
         }
-        h.hp -= this.damage;
-        System.out.println("Rest hp: " + h.hp);
-        if(isDead(h)){
-            System.out.println("Dead!");
+        if(h.isDead()){
+            System.out.println("Hero "+h.name+" is dead.");
         }
     }
-    public static boolean isDead(Hero h){
-        return h.hp<0;
+    public Hero(int damage, float hp, String name){
+        this.name = name;
+        this.hp = hp;
+        this.damage = damage;
     }
-    public static void main(String args[]){
-
+    public boolean isDead(){
+        return hp<0;
     }
 }
