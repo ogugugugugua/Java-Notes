@@ -455,7 +455,7 @@ public synchronized T pull(){
         }
     }
 public synchronized void push(T t) {
-        if (this.stack.size()>=200){
+        if (this.stack.size()==200){
             try{
                 this.wait();
             }catch (Exception e){
@@ -471,7 +471,32 @@ When several push functions threads are executed consecutively at almost the sam
 
 The similar situation can happen for the `pull` function thread which causes the output of `null` because of the same reason as aboved.
 
-
+However, if we use codes like this:
+```java
+public synchronized void push(T t) {
+        while (this.stack.size()==200){
+            try{
+                this.wait();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        this.notifyAll();
+        this.stack.addLast(t);
+    }
+public synchronized T pull(){
+        while(this.stack.isEmpty()){
+            try{
+                this.wait();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+            this.notify();
+            return this.stack.removeLast();
+    }
+```
+We can avoid the problems that might come along with the previous codes by re-checking the situation of `stack.size()` every time a `push`/`pull` is awaked because we need to satisfy the constraint of `stack.size()` in order to proceed.
 <center>
 
 ## Course2
