@@ -437,6 +437,41 @@ public class WaitNotify {
 
 - notifyAll() 的意思是，通知所有的等待在这个同步对象上的线程，你们可以苏醒过来了，有机会重新占用当前对象了。
 
+#### 7. One More Thing About `Wait` And `Notify`
+For functions like this:
+```java
+public synchronized T pull(){
+        if(this.stack.isEmpty()){
+            try{
+                this.wait();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            return null;
+        }
+        else{
+            this.notify();
+            return this.stack.removeLast();
+        }
+    }
+public synchronized void push(T t) {
+        if (this.stack.size()>=200){
+            try{
+                this.wait();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        this.stack.addLast(t);
+        this.notifyAll();
+    }
+```
+Suppose there are several push and several pull threads. &emsp;
+When several push functions threads are executed consecutively at almost the same time, and we find that `stack.size() >= 200` for all these push function threads, these threads will consecutively release the possesion of the current object and wait. Then comes a `pull` threads, which pulls out an object from the stack and then notify one of the waiting `push` function thread. This `push` function thread is thus awaked, addLast() then notifyAll(). In the situation, all other waiting `push` function threads can be awaked consecutively, addLast() and notifyAll() because the previous awaked `push` function thread called the `notifyAll()` method.
+
+The similar situation can happen for the `pull` function thread which causes the output of `null` because of the same reason as aboved.
+
+
 <center>
 
 ## Course2

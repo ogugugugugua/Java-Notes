@@ -2,22 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53193a70-4fa7-4309-963f-e04d07b4cdc7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/company/DeadLock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Synchronize.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/WaitNotify.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/WaitNotify2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/MultiThreadStack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/Battle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/Battle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/Hero.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/Hero.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/Methods.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/Methods.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/Search_java_file.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/Search_java_file.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/TestSearchJavaFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/TestSearchJavaFile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/multiThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/multiThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../note/multiThread.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../note/multiThread.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/WaitNotify$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/WaitNotify$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/WaitNotify$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/WaitNotify$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/WaitNotify.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/WaitNotify.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/numberObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/numberObject.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +41,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.WaitNotify2">
+  <component name="RunManager" selected="Application.WaitNotify">
     <configuration name="DeadLock" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.DeadLock" />
       <module name="multiThread" />
@@ -65,8 +55,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Synchronize" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.Synchronize" />
+    <configuration name="MultiThreadStack" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.MultiThreadStack" />
       <module name="multiThread" />
       <extension name="coverage">
         <pattern>
@@ -112,19 +102,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Synchronize" />
       <item itemvalue="Application.test" />
       <item itemvalue="Application.DeadLock" />
       <item itemvalue="Application.WaitNotify" />
       <item itemvalue="Application.WaitNotify2" />
+      <item itemvalue="Application.MultiThreadStack" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.WaitNotify2" />
         <item itemvalue="Application.WaitNotify" />
+        <item itemvalue="Application.MultiThreadStack" />
+        <item itemvalue="Application.WaitNotify2" />
         <item itemvalue="Application.test" />
         <item itemvalue="Application.DeadLock" />
-        <item itemvalue="Application.Synchronize" />
       </list>
     </recent_temporary>
   </component>
