@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="53193a70-4fa7-4309-963f-e04d07b4cdc7" name="Default Changelist" comment="" />
+    <list default="true" id="53193a70-4fa7-4309-963f-e04d07b4cdc7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/company/TestThreadPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/MultiThreadStack$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/MultiThreadStack$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/MultiThreadStack$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/MultiThreadStack$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/MultiThreadStack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/MultiThreadStack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/WaitNotify$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/WaitNotify$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/WaitNotify$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/WaitNotify$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/WaitNotify.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/WaitNotify.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/numberObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/numberObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/MultiThreadStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MultiThreadStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../note/multiThread.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../note/multiThread.md" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,9 +46,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.WaitNotify">
-    <configuration name="DeadLock" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.DeadLock" />
+  <component name="RunManager" selected="Application.TestThreadPool">
+    <configuration name="MultiThreadStack" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.MultiThreadStack" />
       <module name="multiThread" />
       <extension name="coverage">
         <pattern>
@@ -48,8 +60,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MultiThreadStack" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.MultiThreadStack" />
+    <configuration name="TestThreadPool" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.TestThreadPool" />
       <module name="multiThread" />
       <extension name="coverage">
         <pattern>
@@ -96,18 +108,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.test" />
-      <item itemvalue="Application.DeadLock" />
       <item itemvalue="Application.WaitNotify" />
       <item itemvalue="Application.WaitNotify2" />
       <item itemvalue="Application.MultiThreadStack" />
+      <item itemvalue="Application.TestThreadPool" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.WaitNotify" />
+        <item itemvalue="Application.TestThreadPool" />
         <item itemvalue="Application.MultiThreadStack" />
+        <item itemvalue="Application.WaitNotify" />
         <item itemvalue="Application.WaitNotify2" />
         <item itemvalue="Application.test" />
-        <item itemvalue="Application.DeadLock" />
       </list>
     </recent_temporary>
   </component>

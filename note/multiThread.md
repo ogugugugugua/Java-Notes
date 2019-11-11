@@ -441,7 +441,7 @@ public class WaitNotify {
 For functions like this:
 ```java
 public synchronized T pull(){
-        if(this.stack.isEmpty()){
+        if(this.stack.isEmpty()){ //ATENTION HERE
             try{
                 this.wait();
             }catch (Exception e){
@@ -455,7 +455,7 @@ public synchronized T pull(){
         }
     }
 public synchronized void push(T t) {
-        if (this.stack.size()==200){
+        if (this.stack.size()==200){ //ATENTION HERE
             try{
                 this.wait();
             }catch (Exception e){
@@ -474,7 +474,7 @@ The similar situation can happen for the `pull` function thread which causes the
 However, if we use codes like this:
 ```java
 public synchronized void push(T t) {
-        while (this.stack.size()==200){
+        while (this.stack.size()==200){ //ATENTION HERE
             try{
                 this.wait();
             }catch (Exception e){
@@ -482,10 +482,11 @@ public synchronized void push(T t) {
             }
         }
         this.notifyAll();
+        //Can be put below, really takes effect when exiting the function thread and releasing the current object
         this.stack.addLast(t);
     }
 public synchronized T pull(){
-        while(this.stack.isEmpty()){
+        while(this.stack.isEmpty()){ //ATENTION HERE
             try{
                 this.wait();
             }catch (Exception e){
@@ -497,6 +498,43 @@ public synchronized T pull(){
     }
 ```
 We can avoid the problems that might come along with the previous codes by re-checking the situation of `stack.size()` every time a `push`/`pull` is awaked because we need to satisfy the constraint of `stack.size()` in order to proceed.
+
+#### 8. Thread Pool
+`ThreadPool` 包含了内部类`TaskConsumeThread`，也包含了存放任务的列表`Tasks`
+
+`TaskConsumeThread`继承了`Thread`
+
+`ThreadPool`中包含一个存放任务的列表`Tasks`，初始时该`Tasks`为空，但是构造函数会初始化出来10个`TaskConsumeThread`线程，每个`TaskConsumeThread`线程由于判断到`Tasks`为空而处在等待状态。在每个`TaskConsumeThread`中重写了`run`方法（所以可以把类型为`Runnable`的`task`进行执行），某个被唤醒的`TaskConsumeThread`中的`run`方法会在锁定任务列表`Tasks`并获取其中一个任务`task`之后，唤醒其余`TaskConsumeThread`，释放任务列表锁，通过调用该`task`自己的`run`方法，进行任务的处理，接着继续判断是否任务列表为空，若是，则进入休眠+释放任务列表锁+等待被唤醒，若否，则重复上述动作（拿出一个任务，唤醒其余`TaskConsumeThread`，释放任务列表锁，调用该任务自己的方法来处理，判断是否任务列表为空……）
+
+
+为什么`TaskConsumeThread`线程不会因为执行完一个`Runnable`类型的`task`之后结束，是因为在`TaskConsumeThread`内始终进行着`while(true)`，然后在while循环里面调用`task`的`run`方法，调用完之后一判断，诶，任务列表是空的，那这个线程就休眠去了，直到①被别的`TaskConsumeThread`唤醒 或者 ②所有的`TaskConsumeThread`都休眠了但是有新的任务加进来列表中，调用`ThreadPool.add`的过程中锁定了任务列表，添加了任务后，使用了任务列表的`notifyAll()`，某一个等待任务列表的幸运儿线程`TaskConsumeThread`被唤醒了，在判断任务列表不为空后进入了工作状态。
+
+
+
+
+<center>
+
+![2600](https://user-images.githubusercontent.com/17522733/68603487-a0fa5a80-04a8-11ea-873f-9b7fc2e450bf.png)
+</center>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <center>
 
 ## Course2

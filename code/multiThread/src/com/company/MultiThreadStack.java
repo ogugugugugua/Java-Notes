@@ -43,7 +43,7 @@ public class MultiThreadStack<T>{
         List<Thread> Producers = new ArrayList<>();
         List<Thread> Consumers = new ArrayList<>();
 
-        for (int i = 0; i < 40; i++) {
+        for (int i = 0; i < 30; i++) {
             int finalI = i;
             Thread producer = new Thread(){
                 public void run(){
@@ -51,8 +51,9 @@ public class MultiThreadStack<T>{
                         Character temp = (char) (Math.random ()*26+'A');
                         System.out.println("producer" + finalI + " 压入 " + temp + " stack size:" + stack.size());
                         stack.push(temp);
+                        //当该容器是线程安全时，外部的线程调用该容器的函数不须关心是否synchronized之类的问题
                         try{
-                            Thread.sleep(100);
+                            Thread.sleep(1000);
                         }catch (Exception e){
                             e.printStackTrace();
                         }
@@ -63,7 +64,7 @@ public class MultiThreadStack<T>{
             producer.start();
         }
 
-        for(int i =0;i<3;i++){
+        for(int i =0;i<40;i++){
             int finalI = i;
             Thread consumer = new Thread(){
                 public void run(){
