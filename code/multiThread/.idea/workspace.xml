@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53193a70-4fa7-4309-963f-e04d07b4cdc7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/company/TestThreadPool.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/MultiThreadStack$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/MultiThreadStack$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/MultiThreadStack$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/MultiThreadStack$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/MultiThreadStack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/MultiThreadStack.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/WaitNotify$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/WaitNotify$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/WaitNotify$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/WaitNotify$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/WaitNotify.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/WaitNotify.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/numberObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/numberObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/MultiThreadStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MultiThreadStack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../note/multiThread.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../note/multiThread.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +23,7 @@
   <component name="ProjectId" id="1TNO3Y1JON6XWNyJudjPyVRMZ4c" />
   <component name="PropertiesComponent">
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573078928275" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -46,7 +37,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TestThreadPool">
+  <component name="RunManager" selected="Application.examenJava">
     <configuration name="MultiThreadStack" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.MultiThreadStack" />
       <module name="multiThread" />
@@ -99,27 +90,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test" />
+    <configuration name="examenJava" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.examenJava" />
       <module name="multiThread" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.test" />
       <item itemvalue="Application.WaitNotify" />
       <item itemvalue="Application.WaitNotify2" />
       <item itemvalue="Application.MultiThreadStack" />
       <item itemvalue="Application.TestThreadPool" />
+      <item itemvalue="Application.examenJava" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.examenJava" />
         <item itemvalue="Application.TestThreadPool" />
         <item itemvalue="Application.MultiThreadStack" />
         <item itemvalue="Application.WaitNotify" />
         <item itemvalue="Application.WaitNotify2" />
-        <item itemvalue="Application.test" />
       </list>
     </recent_temporary>
   </component>
