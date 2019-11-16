@@ -241,7 +241,7 @@ public static void main(String[] args) {
 #### 9. Data Access Object (DAO)
 数据访问对象。
 实际上就是运用了练习-ORM中的思路，把数据库相关的操作都封装在这个类里面，其他地方看不到JDBC的代码。定义这么一个接口：
-```java 
+```java
 public interface DAO{
     //增加
     public void add(Hero hero);
@@ -257,3 +257,5 @@ public interface DAO{
     public List<Hero> list(int start, int count);
 }
 ```
+#### 10. 数据库连接池
+待补充……
