@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="53193a70-4fa7-4309-963f-e04d07b4cdc7" name="Default Changelist" comment="" />
+    <list default="true" id="53193a70-4fa7-4309-963f-e04d07b4cdc7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../reflect/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../reflect/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../reflect/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../reflect/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../reflect/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../reflect/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../reflect/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../reflect/reflect.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../reflect/src/hero/Hero.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
