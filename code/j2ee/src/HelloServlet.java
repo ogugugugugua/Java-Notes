@@ -8,7 +8,7 @@ public class HelloServlet extends HttpServlet {
         try{
             response.getWriter().println("<h1>Polytech!</h1>");
             response.getWriter().println(new Date().toLocaleString());
-
+            response.getWriter().println("<h1>Polytech!</h1>");
         }catch (Exception e){
             e.printStackTrace();
         }
