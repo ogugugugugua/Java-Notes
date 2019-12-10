@@ -16,7 +16,7 @@
         <tapestry-version>5.5.0-beta-3</tapestry-version>
         <tapestry-testify-version>1.0.4</tapestry-testify-version>
         <tapestry-xpath-version>1.0.1</tapestry-xpath-version>
-        <jackson-version>2.9.6</jackson-version>
+        <jackson-version>2.10.1</jackson-version>
         <geb-version>2.3.1</geb-version>
         <htmlunit-driver-version>2.33.3</htmlunit-driver-version>
         <json-version>1.1.2</json-version>
