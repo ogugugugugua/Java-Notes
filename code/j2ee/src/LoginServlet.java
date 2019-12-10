@@ -14,22 +14,27 @@ public class LoginServlet extends HttpServlet {
         request.setCharacterEncoding(String.valueOf(StandardCharsets.UTF_8));
 
         String name = request.getParameter("name");
-//        byte[] bytes = name.getBytes(StandardCharsets.ISO_8859_1);
-//        name = new String(bytes, StandardCharsets.UTF_8);
         String password = request.getParameter("password");
 
         System.out.println("name: "+name);
         System.out.println("password: "+password);
 
-        String html = null;
+//        String html = null;
+//        if("admin".equals(name) && "123".equals(password)){
+//            html = "<div style='color:green'>登录成功! Login réussi! </div>";
+//        }else {
+//            html = "<div style='color:red'>FAILED!</div>";
+//        }
+//        response.setContentType("text/html; charset=UTF-8");
+//        PrintWriter printWriter = response.getWriter();
+//        printWriter.println(html);
         if("admin".equals(name) && "123".equals(password)){
-            html = "<div style='color:green'>登录成功! Login réussi! </div>";
+            request.getRequestDispatcher("success.html").forward(request,response);
+            System.out.println("server side jump");
         }else {
-            html = "<div style='color:red'>FAILED!</div>";
+            response.sendRedirect("fail.html");
+            System.out.println("client side jump");
         }
-        response.setContentType("text/html; charset=UTF-8");
-        PrintWriter printWriter = response.getWriter();
-        printWriter.println(html);
     }
 
     @Override
