@@ -19,6 +19,7 @@ public class LoginServlet extends HttpServlet {
         System.out.println("name: "+name);
         System.out.println("password: "+password);
 
+        //直接返回响应输出字符串
 //        String html = null;
 //        if("admin".equals(name) && "123".equals(password)){
 //            html = "<div style='color:green'>登录成功! Login réussi! </div>";
@@ -28,6 +29,8 @@ public class LoginServlet extends HttpServlet {
 //        response.setContentType("text/html; charset=UTF-8");
 //        PrintWriter printWriter = response.getWriter();
 //        printWriter.println(html);
+
+        //分别使用服务器或客户端响应调取不同的html文件进行显示
         if("admin".equals(name) && "123".equals(password)){
             request.getRequestDispatcher("success.html").forward(request,response);
             System.out.println("server side jump");

@@ -6,6 +6,7 @@ import java.util.Date;
 
 public class HelloServlet extends HttpServlet {
     public void init(ServletConfig servletConfig){
+        //测试初始化
         System.out.println("initialization of hello servlet");
     }
     public void doGet(HttpServletRequest request, HttpServletResponse response){
