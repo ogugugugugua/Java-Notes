@@ -11,9 +11,10 @@ public class HelloServlet extends HttpServlet {
     }
     public void doGet(HttpServletRequest request, HttpServletResponse response){
         try{
+            response.setContentType("text/html; charset=UTF-8");
             response.getWriter().println("<h1>Polytech!</h1>");
             response.getWriter().println(new Date().toLocaleString());
-            response.getWriter().println("<h1>Polytech!</h1>");
+            response.getWriter().println("<h1>你好!</h1>");
         }catch (Exception e){
             e.printStackTrace();
         }

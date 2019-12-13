@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
+import java.util.Enumeration;
 import java.util.Map;
 import java.util.Set;
 
@@ -31,5 +32,12 @@ public class RegisterServlet extends HttpServlet {
         resp.setContentType("text/html1; charset=UTF-8");
         PrintWriter printWriter = resp.getWriter();
         printWriter.println(html1);
+
+        Enumeration<String> headerNames= req.getHeaderNames();
+        while(headerNames.hasMoreElements()){
+            String header = headerNames.nextElement();
+            String value = req.getHeader(header);
+            System.out.printf("%s\t%s%n",header,value);
+        }
     }
 }
