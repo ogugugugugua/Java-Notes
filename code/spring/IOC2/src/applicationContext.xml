@@ -19,6 +19,7 @@
     <bean name="p" class="com.yulin.POJO.Product">
         <property name="name" value="pro"/>
         <property name="id" value="2"/>
+        <!--在创建Product的时候注入一个Category对象. 注意，这里要使用ref来注入另一个对象-->
         <property name="category" ref="c"/>
     </bean>
 </beans>
