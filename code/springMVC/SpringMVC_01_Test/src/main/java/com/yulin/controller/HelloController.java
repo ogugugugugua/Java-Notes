@@ -43,6 +43,12 @@ public class HelloController {
         System.out.println("Enter RequestMappingMethodRIGHT");
         return "ReqMapMethodRIGHT";
     }
+
+    @RequestMapping(value = "ReqMapTestParams",params = {"anyParams"})
+    public String RequestMappingParams(){
+        System.out.println("Enter RequestMappingParams");
+        return "ReqMapParams";
+    }
 }
 
 /*

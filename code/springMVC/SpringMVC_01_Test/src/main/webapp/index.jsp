@@ -20,6 +20,8 @@
     <a href="ReqMapMethodWRONG">ReqMapMethod WRONG</a>
     <br>
     <a href="ReqMapMethodRIGHT">ReqMapMethod RIGHT</a>
+    <br>
+    <a href="ReqMapTestParams?anyParams">ReqMapTestParams</a>
 <%--这里href指向的是一个控制器类方法，所以我们要去写这个HelloController.java--%>
 </body>
 </html>
