@@ -1,12 +1,16 @@
 package com.yulin.domain;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
 
 public class Account implements Serializable {
     private String name;
     private String pwd;
     private Double salary;
     private PersonInfo personInfo;
+    private List<PersonInfo> list;
+    private Map<String,PersonInfo> map;
 
     public String getName() {
         return name;
@@ -40,6 +44,22 @@ public class Account implements Serializable {
         this.personInfo = personInfo;
     }
 
+    public List<PersonInfo> getList() {
+        return list;
+    }
+
+    public void setList(List<PersonInfo> list) {
+        this.list = list;
+    }
+
+    public Map<String, PersonInfo> getMap() {
+        return map;
+    }
+
+    public void setMap(Map<String, PersonInfo> map) {
+        this.map = map;
+    }
+
     @Override
     public String toString() {
         return "Account{" +
@@ -47,6 +67,8 @@ public class Account implements Serializable {
                 ", pwd='" + pwd + '\'' +
                 ", salary=" + salary +
                 ", personInfo=" + personInfo +
+                ", list=" + list +
+                ", map=" + map +
                 '}';
     }
 }

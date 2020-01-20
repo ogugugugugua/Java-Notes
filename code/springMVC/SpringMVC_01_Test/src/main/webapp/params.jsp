@@ -21,6 +21,13 @@
 
         Age:<input type="text" name="personInfo.age"/><br/> <!--注意这里使用了personInfo.age来定义A类中的B类成员-->
         Sex:<input type="text" name="personInfo.sex"/><br/> <!--注意这里使用了personInfo.sex来定义A类中的B类成员-->
+
+        Age:<input type="text" name="list[0].age"/><br/>
+        Sex:<input type="text" name="list[0].sex"/><br/>
+        Age:<input type="text" name="map['first'].age"/><br/>
+        Sex:<input type="text" name="map['first'].sex"/><br/>
+
+
         <input type="submit" value="Submit">
     </form>
 
