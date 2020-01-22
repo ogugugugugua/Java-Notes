@@ -26,8 +26,16 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <bean id="conversionServiceFactoryBean" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <bean class="com.yulin.utils.StringToDateConverter"/>
+            </set>
+        </property>
+    </bean>
+
 <!--  开启SpringMVC框架注解的支持  -->
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven conversion-service="conversionServiceFactoryBean"/>
 </beans>
 
 <!-- 需求： 发请求，后台一个类帮忙处理请求，跳转到成功页面  -->

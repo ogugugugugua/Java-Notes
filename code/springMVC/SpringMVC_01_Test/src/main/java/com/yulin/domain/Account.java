@@ -1,6 +1,7 @@
 package com.yulin.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -11,6 +12,7 @@ public class Account implements Serializable {
     private PersonInfo personInfo;
     private List<PersonInfo> list;
     private Map<String,PersonInfo> map;
+    private Date date;
 
     public String getName() {
         return name;
@@ -60,6 +62,14 @@ public class Account implements Serializable {
         this.map = map;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
     @Override
     public String toString() {
         return "Account{" +
@@ -69,6 +79,7 @@ public class Account implements Serializable {
                 ", personInfo=" + personInfo +
                 ", list=" + list +
                 ", map=" + map +
+                ", date=" + date +
                 '}';
     }
 }

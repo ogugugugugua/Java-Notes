@@ -19,14 +19,15 @@
         Password:<input type="text" name="pwd"/><br/>
         Salary:<input type="text" name="salary"/><br/>
 
-        Age:<input type="text" name="personInfo.age"/><br/> <!--注意这里使用了personInfo.age来定义A类中的B类成员-->
-        Sex:<input type="text" name="personInfo.sex"/><br/> <!--注意这里使用了personInfo.sex来定义A类中的B类成员-->
+        personInfo.age:<input type="text" name="personInfo.age"/><br/> <!--注意这里使用了personInfo.age来定义A类中的B类成员-->
+        personInfo.sex:<input type="text" name="personInfo.sex"/><br/> <!--注意这里使用了personInfo.sex来定义A类中的B类成员-->
 
-        Age:<input type="text" name="list[0].age"/><br/>
-        Sex:<input type="text" name="list[0].sex"/><br/>
-        Age:<input type="text" name="map['first'].age"/><br/>
-        Sex:<input type="text" name="map['first'].sex"/><br/>
+        list[0].age:<input type="text" name="list[0].age"/><br/>
+        list[0].sex:<input type="text" name="list[0].sex"/><br/>
+        map['first'].age:<input type="text" name="map['first'].age"/><br/>
+        map['first'].sex:<input type="text" name="map['first'].sex"/><br/>
 
+        Date:<input type="text" name="date"/><br/>
 
         <input type="submit" value="Submit">
     </form>
