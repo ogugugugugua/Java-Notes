@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 在配置好了web.xml之后要创建一个SpringMVC的配置文件，即当前文件 -->
+
+<!-- 在写好了HelloController.java之后，要来这里开启自动扫描-->
+<!-- 开启注解扫描，需要context这个名称空间，因此先引入如下：-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--  下面开启注解扫描：  -->
+    <context:component-scan base-package="com.yulin"/>
+
+<!--  为了顺利找到success.jsp，还需要配置一个视图解析器：  -->
+    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<!--  会在下面的这个路径进行查找相关的跳转页面      -->
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+
+<!--  开启SpringMVC框架注解的支持  -->
+    <mvc:annotation-driven />
+</beans>
+
+<!-- 需求： 发请求，后台一个类帮忙处理请求，跳转到成功页面  -->
+<!-- 因此第一件事是要在index.jsp上写代码 -->
