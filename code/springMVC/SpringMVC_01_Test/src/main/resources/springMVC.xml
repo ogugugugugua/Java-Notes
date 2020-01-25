@@ -26,8 +26,10 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+<!--转换器工厂-->
     <bean id="conversionServiceFactoryBean" class="org.springframework.context.support.ConversionServiceFactoryBean">
         <property name="converters">
+<!--            这是自己定义的转换器-->
             <set>
                 <bean class="com.yulin.utils.StringToDateConverter"/>
             </set>
