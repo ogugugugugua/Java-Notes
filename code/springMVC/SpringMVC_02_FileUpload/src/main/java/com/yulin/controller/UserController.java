@@ -2,17 +2,15 @@ package com.yulin.controller;
 
 import com.yulin.domain.User;
 import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
@@ -20,6 +18,12 @@ import java.util.UUID;
 @RequestMapping("/user")
 public class UserController {
 
+    /**
+     * 传统方式上传文件(略复杂)
+     * @param request
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("/fileupload1")
     public String fileupload1(HttpServletRequest request) throws Exception {
         System.out.println("fileupload1");
@@ -64,5 +68,30 @@ public class UserController {
         return "success";
     }
 
+    /**
+     * SpringMVC方式上传文件(稍简单)
+     * @return
+     */
+    @RequestMapping("fileupload2")
+    public String fileupload2(HttpServletRequest request, MultipartFile upload) throws Exception {
+        System.out.println("SpringMVC file upload");
+
+        //上传位置
+        String path = request.getSession().getServletContext().getRealPath("/uploads/");
+        System.out.println(path);
+
+        //判断路径是否存在
+        File file = new File(path);
+        if(!file.exists()){
+            file.mkdirs();
+        }
+
+        String filename = upload.getOriginalFilename();
+        String uuid = UUID.randomUUID().toString().replace("-","");
+        filename = uuid+"_"+filename;
+
+        upload.transferTo(new File(path, filename));
+        return "success";
+    }
 
 }
