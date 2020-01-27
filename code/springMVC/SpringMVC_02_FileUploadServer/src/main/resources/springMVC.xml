@@ -31,6 +31,12 @@
     <mvc:resources location="/images/" mapping="/images/**"/>
     <mvc:resources location="/js/" mapping="/js/**"/>
 
+<!--  配置文件解析器对象  -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="10485760"/>
+
+    </bean>
+
 <!--  开启SpringMVC框架注解的支持  -->
     <mvc:annotation-driven />
 </beans>
