@@ -6,7 +6,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class Interceptor1 implements HandlerInterceptor {
+public class Interceptor2 implements HandlerInterceptor {
     /**
      * 预处理，controller方法执行前
      * return true表示放行，执行下一个拦截器；如果没有下一个拦截器，执行controller中的方法
@@ -20,7 +20,7 @@ public class Interceptor1 implements HandlerInterceptor {
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        System.out.println("Arrived at Interceptor1 preHandle");
+        System.out.println("Arrived at Interceptor2 preHandle");
 
         //直接跳转到error.jsp页面
         //request.getRequestDispatcher("/WEB-INF/pages/error.jsp").forward(request,response);
@@ -38,7 +38,7 @@ public class Interceptor1 implements HandlerInterceptor {
      */
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        System.out.println("Arrived at Interceptor1 postHandle");
+        System.out.println("Arrived at Interceptor2 postHandle");
         //当然在这里也可以跳转到其他页面，比如上面preHandle里面的error.jsp
     }
 
@@ -53,7 +53,7 @@ public class Interceptor1 implements HandlerInterceptor {
      */
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        System.out.println("Arrived at Interceptor1 afterCompletion");
+        System.out.println("Arrived at Interceptor2 afterCompletion");
         //在这里就不能再跳转到别的页面了
     }
 }
