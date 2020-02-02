@@ -1,0 +1,7 @@
+[INFO][20-02-02][dao.UserMapperTest] info: testLog4j
+[WARN][20-02-02][dao.UserMapperTest] warn: testLog4j
+[ERROR][20-02-02][dao.UserMapperTest] error: testLog4j
+[INFO][20-02-02][dao.UserMapperTest] info: testLog4j
+[WARN][20-02-02][dao.UserMapperTest] warn: testLog4j
+[DEBUG][20-02-02][dao.UserMapperTest] debug: testLog4j
+[ERROR][20-02-02][dao.UserMapperTest] error: testLog4j
