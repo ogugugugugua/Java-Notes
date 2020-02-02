@@ -1,6 +1,4 @@
 ## MyBatis
 
-logging:
-
-    STDOUT_LOGGING
-    LOG4J
+使用注解开发
+lombook
