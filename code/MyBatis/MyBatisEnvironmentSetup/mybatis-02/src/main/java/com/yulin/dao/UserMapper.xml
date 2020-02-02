@@ -10,19 +10,19 @@
 <mapper namespace="com.yulin.dao.UserMapper">
 
 <!--    这里的id对应接口里面需要实现的方法，返回对象类型和该方法的返回值(泛型)相同-->
-    <select id="getUserList" resultType="com.yulin.pojo.User">
+    <select id="getUserList" resultType="User">
         select * from mybatis.user;
     </select>
 
-    <select id="getUserById" parameterType="int" resultType="com.yulin.pojo.User">
+    <select id="getUserById" parameterType="int" resultType="User">
         select * from mybatis.user where id=#{id};
     </select>
 
-    <update id="updateUser" parameterType="com.yulin.pojo.User">
+    <update id="updateUser" parameterType="User">
         update mybatis.user set name=#{name},pwd=#{pwd} where id=#{id};
     </update>
 
-    <insert id="insertUser" parameterType="com.yulin.pojo.User">
+    <insert id="insertUser" parameterType="User">
         insert into mybatis.user (id, name, pwd) values (#{id},#{name},#{pwd});
     </insert>
 
