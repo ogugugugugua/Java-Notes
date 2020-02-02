@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace绑定一个对应的dao/mapper接口-->
+<mapper namespace="com.yulin.dao.UserMapper">
+
+<!--    这里增加了一个结果集映射，将查询到的数据映射到实体类中。id="UserMap"是自己取的一个名字，type="User"即对应的实体类是User-->
+<!--    里面的property对应实体类中的数据成员，column对应数据库中的列名-->
+    <resultMap id="UserMap" type="User">
+        <id property="id" column="id"/>
+        <id property="name" column="name"/>
+        <id property="password" column="pwd"/>
+    </resultMap>
+
+<!--    注意这里使用了是resultMap而不再是resultType-->
+    <select id="getUserById" parameterType="int" resultMap="UserMap">
+        select * from mybatis.user where id=#{id};
+    </select>
+
+
+</mapper>
