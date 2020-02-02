@@ -1,6 +1,8 @@
 ## MyBatis
 
-logging:
+查询：
 
-    STDOUT_LOGGING
-    LOG4J
+一对多
+
+多对一
+
