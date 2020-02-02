@@ -37,4 +37,10 @@
     <update id="updateUserMap" parameterType="map">
         update mybatis.user set name=#{MapNAME}  where id=#{MapID};
     </update>
+
+<!--    模糊查询：在SQL拼接中使用通配符可以防止SQL注入攻击-->
+    <select id="getUserListLike" parameterType="String" resultType="com.yulin.pojo.User">
+        select * from mybatis.user where name like "%"#{value}"%";
+    </select>
+
 </mapper>

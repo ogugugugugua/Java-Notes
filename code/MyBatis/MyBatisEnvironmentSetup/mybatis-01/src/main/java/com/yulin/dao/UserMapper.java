@@ -37,6 +37,7 @@ public interface UserMapper {
     /**
      * 模糊查询
      */
-
+    //select3
+    List<User> getUserListLike(String value);
 
 }

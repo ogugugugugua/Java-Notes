@@ -104,4 +104,16 @@ public class UserMapperTest {
 
         sqlSession.close();
     }
+
+    @Test
+    public void getUserListLike(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+
+        //模糊查询值为输入参数value
+        List<User> c = mapper.getUserListLike("c");
+        System.out.println(c);
+
+        sqlSession.close();
+    }
 }
