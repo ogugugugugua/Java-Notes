@@ -5,7 +5,9 @@ import com.yulin.utils.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class UserMapperTest {
     @Test
@@ -44,7 +46,7 @@ public class UserMapperTest {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 
-        mapper.updateUser(new User(3,"changeName","987898"));
+        mapper.updateUser(new User(4,"cfour","ftk98"));
         sqlSession.commit();
 
         sqlSession.close();
@@ -67,6 +69,37 @@ public class UserMapperTest {
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 
         mapper.deleteUser(5);
+        sqlSession.commit();
+
+        sqlSession.close();
+    }
+
+    @Test
+    public void insertUserMap(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+
+        Map<String,Object> map = new HashMap<String, Object>();
+        map.put("MapID",6);
+        map.put("MapNAME","mapInputName");
+        map.put("MapPWD","pwd");
+
+        mapper.insertUserMap(map);
+        sqlSession.commit();
+
+        sqlSession.close();
+    }
+
+    @Test
+    public void updateUserMap(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+
+        Map<String,Object> map = new HashMap<String, Object>();
+        map.put("MapID",6);
+        map.put("MapNAME","mapUpdateName");
+
+        mapper.updateUserMap(map);
         sqlSession.commit();
 
         sqlSession.close();

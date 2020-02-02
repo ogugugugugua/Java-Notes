@@ -3,6 +3,7 @@ package com.yulin.dao;
 import com.yulin.pojo.User;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 操作数据库对象的一些方法
@@ -23,5 +24,19 @@ public interface UserMapper {
 
     //delete
     void deleteUser(int id);
+
+    /**
+     * use map:
+     */
+    //insert
+    void insertUserMap(Map<String,Object> map);
+
+    //update
+    void updateUserMap(Map<String,Object> map);
+
+    /**
+     * 模糊查询
+     */
+
 
 }

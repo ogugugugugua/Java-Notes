@@ -6,7 +6,6 @@
 <!--这里的UserMapper.xml可以看做是UserDao接口的实现类-->
 
 
-
 <!--namespace绑定一个对应的dao/mapper接口-->
 <mapper namespace="com.yulin.dao.UserMapper">
 
@@ -30,4 +29,12 @@
     <delete id="deleteUser" parameterType="int">
         delete from mybatis.user where id=#{id};
     </delete>
+
+    <insert id="insertUserMap" parameterType="map">
+        insert into mybatis.user (id, name, pwd) values (#{MapID},#{MapNAME},#{MapPWD});
+    </insert>
+
+    <update id="updateUserMap" parameterType="map">
+        update mybatis.user set name=#{MapNAME}  where id=#{MapID};
+    </update>
 </mapper>
