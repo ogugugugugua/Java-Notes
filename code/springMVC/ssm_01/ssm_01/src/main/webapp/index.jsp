@@ -13,5 +13,15 @@
 <body>
     <h3>index</h3>
     <a href="account/findAll">TestFindAll</a>
+
+    <br/><br/>
+
+    <h3>TestSave</h3>
+
+    <form action="account/save" method="post">
+        Name:<input type="text" name="name"/><br/>
+        Money:<input type="text" name="money"/><br/>
+        <input type="submit" name="save"/><br/>
+    </form>
 </body>
 </html>

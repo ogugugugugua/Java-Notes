@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
+@Repository     //表示这个东西也交给IOC容器去管理
 public interface AccountDao {
     /**
      * 查询所有账户
