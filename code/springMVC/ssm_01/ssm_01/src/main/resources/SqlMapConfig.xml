@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+<!--    配置环境-->
+    <environments default="mysql">
+        <environment id="mysql">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/ssm?useSSL=true&amp;useUnicode=true&amp;characterEncoding=utf8"/>
+
+                <property name="username" value="root"/>
+                <property name="password" value="admin"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+<!--    引入映射配置文件-->
+    <mappers>
+        <package name="com.yulin.dao"/>
+    </mappers>
+</configuration>

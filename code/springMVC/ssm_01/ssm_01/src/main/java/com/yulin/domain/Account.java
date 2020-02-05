@@ -7,6 +7,12 @@ public class Account implements Serializable {
     private String name;
     private Double money;
 
+    public Account(Integer id, String name, Double money) {
+        this.id = id;
+        this.name = name;
+        this.money = money;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -25,6 +31,15 @@ public class Account implements Serializable {
 
     public Double getMoney() {
         return money;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", money=" + money +
+                '}';
     }
 
     public void setMoney(Double money) {
