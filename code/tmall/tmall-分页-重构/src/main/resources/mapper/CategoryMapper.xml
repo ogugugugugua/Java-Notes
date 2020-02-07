@@ -5,13 +5,6 @@
 <mapper namespace="com.yulin.tmall.mapper.CategoryMapper">
     <select id="list" resultType="Category">
         select * from category order by id desc
-        <if test="start!=null and count!=null">
-            limit #{start},#{count}
-        </if>
-    </select>
-
-    <select id="total" resultType="int">
-        select count(*) from category;
     </select>
 
 <!--    需要加上2个属性：keyProperty="id" useGeneratedKeys="true" 以确保Category对象通过mybatis增加到数据库之后得到的id增长值会被设置在Category对象上。

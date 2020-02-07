@@ -1,5 +1,7 @@
 package com.yulin.tmall.controller;
  
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.yulin.tmall.pojo.Category;
 import com.yulin.tmall.service.CategoryService;
 import com.yulin.tmall.util.ImageUtil;
@@ -35,8 +37,10 @@ public class CategoryController{
      */
     @RequestMapping("admin_category_list") /*映射admin_category_list路径的访问*/
     public String list(Model model, Page page){
-        List<Category> cs = categoryService.list(page); /*获取所有的Category对象并放在cs中*/
-        int total = categoryService.total();
+        PageHelper.offsetPage(page.getStart(),page.getCount());
+        List<Category> cs = categoryService.list(); /*获取所有的Category对象并放在cs中*/
+
+        int total = (int) new PageInfo<>(cs).getTotal();
         page.setTotal(total);
         model.addAttribute("cs", cs);
         model.addAttribute("page",page);

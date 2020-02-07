@@ -6,8 +6,7 @@ import com.yulin.tmall.util.Page;
 import java.util.List;
  
 public interface CategoryMapper {
-    List<Category> list(Page page);
-    public int total();
+    List<Category> list();
     public void add(Category category);
     public void delete(int id);
     public Category getByID(int id);
