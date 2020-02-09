@@ -36,7 +36,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product get(int id) {
         Product product = productMapper.selectByPrimaryKey(id);
-        setCategory(product);
+        setCategory(product); //由于在这里已经设置了该product对应的Category，所以在controller那里就不再需要重新设置了
         return product;
     }
 

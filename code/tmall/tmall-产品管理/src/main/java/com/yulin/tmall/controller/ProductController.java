@@ -30,7 +30,7 @@ public class ProductController {
      */
     @RequestMapping("admin_product_add")
     public String add(Product product){
-        product.setCreateDate(new Date());
+        product.setCreateDate(new Date());//是用来在分类页面按新品排序用的
         productService.add(product);
         return "redirect:admin_product_list?cid="+product.getCid();
     }
@@ -56,8 +56,11 @@ public class ProductController {
     @RequestMapping("admin_product_edit")
     public String edit(Model model, int id){
         Product product = productService.get(id);                       //在ProductController的edit方法中，根据id获取product对象
+
+/*      业务层的get已装配了对应分类，控制层不用设置了,这是站长的一个多余的bug：
         Category category = categoryService.getByID(product.getCid());  //根据product对象的cid产品获取Category对象，并把其设置在product对象的category产品上
-        product.setCategory(category);
+        product.setCategory(category);*/
+
         model.addAttribute("p",product);                  //把product对象放在request的 "p" 产品中
         return "admin/editProduct";
     }
