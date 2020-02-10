@@ -30,10 +30,16 @@ public class PropertyValueController {
         model.addAttribute("pvs", pvs);
         return "admin/editPropertyValue";
     }
+
+    /**
+     * 修改功能采用的是使用post方式提交ajax的异步调用方式
+     * @param pv
+     * @return 结合方法update上的注解@ResponseBody和return "success" 就会向浏览器返回字符串 "success"
+     */
     @RequestMapping("admin_propertyValue_update")
     @ResponseBody
     public String update(PropertyValue pv) {
-        propertyValueService.update(pv);
+        propertyValueService.update(pv); //通过 propertyValueService.update(propertyValue) 更新到数据库
         return "success";
     }
 }
