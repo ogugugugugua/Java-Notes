@@ -23,7 +23,7 @@ public class CategoryServiceImpl  implements CategoryService {
 
     @Override
     public void add(Category category) {
-        System.out.println("category.getName: "+category.getName());
+//        System.out.println("category.getName: "+category.getName());
         categoryMapper.add(category);
     }
 

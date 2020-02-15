@@ -68,6 +68,7 @@
         <div class="panel-body">
             <%-- method="post" 保证中文正确提交；enctype="multipart/form-data"有这个才能上传文件；--%>
             <form method="post" id="addForm" action="admin_category_add" enctype="multipart/form-data">
+                                              <%-- ↗ 在这里调用add方法 ↖--%>
                 <table class="addTable">
                     <tr>
                         <td>分类名称</td>
