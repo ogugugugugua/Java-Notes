@@ -27,7 +27,7 @@
 
     <c:if test="${empty user}">                     <!--尚未登录状态-->
         <a href="loginPage">请登录</a>
-        <a href="registerPage">免费注册</a>
+        <a href="registerPage">免费注册</a>          <!--超链接PageController中的注册页面跳转方法-->
     </c:if>
 
     <span class="pull-right">                       <!--到订单以及购物车的链接-->
