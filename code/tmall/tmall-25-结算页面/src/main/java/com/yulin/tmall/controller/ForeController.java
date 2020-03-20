@@ -228,9 +228,9 @@ public class ForeController {
             //计算总价，记得要用当前商品的价钱乘上其数量
             total += orderItem.getProduct().getPromotePrice() * orderItem.getNumber();
         }
-
+        
         session.setAttribute("ois", orderItemList);
-        model.addAttribute("total", total);
+        model.addAttribute("total", total);//在要跳转的页面中访问数据
         return "fore/buy";
     }
 }
