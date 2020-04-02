@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+<body>
+<form action="page.html" method="get">
+    <p> 名字 <input type="text" name="username" placeholder="input your name" required>  </p>
+    <p> 密码 <input type="password" name="password" value="1233" hidden></p>
+
+    <p>
+        <input type="radio" name="sex" value="man"> Man
+        <input type="radio" name="sex" value="girl"> Girl
+    </p>
+
+    <p>Hobby:
+        <input type="checkbox" value="code" name="hobby">code
+        <input type="checkbox" value="sleep" name="hobby">sleep
+        <input type="checkbox" value="sex" name="hobby">sex
+        <input type="checkbox" value="game" name="hobby">game
+        <input type="checkbox" value="read" name="hobby">read
+    </p>
+
+
+    <input type="submit">
+    <input type="reset">
+
+
+    <label>
+        <select name="country">
+            <option value="cn">China</option>
+            <option value="us">us</option>
+            <option value="fr">fr</option>
+            <option value="jp">jp</option>
+        </select>
+    </label>
+
+    <p>
+        <input type="file" name="files">
+        <input type="button" name="upload" value="upload">
+    </p>
+
+    <p>Voice:
+        <input type="range" name="voice" step="10">
+    </p>
+</form>
+</body>
+</html>
