@@ -233,7 +233,7 @@ Vue 还可以根据绑定的数据做一些计算，然后我们就可以引用�
 
 基本关系可以总结成如下图↓，由于`v-model`指令的存在，只要在input框中输入，就会实时绑定数据到`newTodoTitle`这个字符串上，按下回车键就会调用`addTodo()`函数，在该函数中将`newTodoTitle`字符串塞入到`todos`数组中，并清空`newTodoTitle`字符串以便于在`input`框中继续输入新数据。
 
-![](C:\javaNotes\pics\vue.png)
+![](https://github.com/ogugugugugua/Java-Notes/blob/master/pics/vue.png)
 
 
 
