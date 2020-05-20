@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml"
+      xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Todo UI</title>
+    <style>
+        .completed {
+            text-decoration: line-through;
+        }
+        .selected {
+            color: red;
+        }
+        .inputting {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div id="todo-app">
+    <div>
+        <input type="text" placeholder="Add new Todo here" v-model="newTodoTitle" v-on:keyup.enter="addTodo">
+    </div>
+
+    <div>
+        <ul>
+            <li v-for="todo in todos" :key="todo.id">
+                <span v-bind:class="{completed: todo.completed}">{{todo.title}}</span>
+<!--                <span>{{todo.id}}</span>-->
+                <input type="button" value="completed"
+                       v-on:click="markAsCompleted(todo)"
+                       v-if="!todo.completed">
+                <input type="button" value="Not completed"
+                       v-on:click="markAsNotCompleted(todo)"
+                       v-if="todo.completed">
+                <input type="button" value="delete"
+                       v-on:click="deleteTodo(todo)">
+                <input type="button" value="edit" v-on:click="pressEditButton(todo)">
+                <input type="text" placeholder="input and press enter"
+                       v-if="todo.buttonEdit"
+                       v-model="newTodoTitle"
+                       v-on:keyup.enter="editTodo(todo)"
+                       v-focus="true">
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <span>{{numNotCompleted}} items left</span>
+        <span>
+            <input type="button" value="All Done" v-on:click="markAllAsCompleted">
+            <input type="button" value="doing" v-on:click="showDoing">
+            <input type="button" value="show completed" v-on:click="showCompleted">
+            <input type="button" value="delete completed" v-on:click="deleteCompleted">
+            <input type="button" value="delete all" v-on:click="deleteAll">
+        </span>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+<script>
+    let Id = 0;
+    let inputting = false;
+
+    var app = new Vue({
+        el: '#todo-app',
+        data: function () {
+            return{
+                todos:[],
+                newTodoTitle: ''
+            }
+        },
+        computed:{
+            numNotCompleted: function () {
+                return this.todos.filter(todo => !todo.completed).length;
+            }
+        },
+        methods:{
+            addTodo: function () {
+                if (this.newTodoTitle.trim()!==''){
+                    this.todos.push({id: Id++, title: this.newTodoTitle, completed: false, buttonEdit: false});
+                    this.newTodoTitle = '';
+                }
+            },
+            markAsCompleted: function (todo) {
+                todo.completed = true;
+            },
+            markAsNotCompleted: function (todo) {
+                todo.completed = false;
+            },
+            deleteTodo: function (todo) {
+                if (!confirm("Delete this TODO?")) {
+                    return
+                }
+                this.todos.splice(this.todos.indexOf(todo), 1);
+            },
+            pressEditButton: function (todo) {
+                todo.buttonEdit = !todo.buttonEdit;
+                this.newTodoTitle = '';
+            },
+            editTodo: function (todo) {
+                if (this.newTodoTitle.trim() !== '') {
+                    this.todos.splice(this.todos.indexOf(todo), 1);
+                    this.todos.push({id: todo.id, title: this.newTodoTitle, completed: false, buttonEdit: false});
+                    this.newTodoTitle = '';
+                }
+            },
+            markAllAsCompleted: function () {
+                this.todos.forEach((item) => {
+                    this.markAsCompleted(item)
+                });
+            },
+            deleteCompleted: function () {
+                if (confirm("Delete all completed TODOs?")) {
+                    this.todos.forEach((item)=>{
+                        if (item.completed){
+                            this.todos.splice(this.todos.indexOf(item), 1);
+                        }
+                    })
+                }
+            },
+            deleteAll: function () {
+                if (confirm("Delete all TODOs?")) {
+                    this.todos.forEach((item)=>{
+                        this.todos = [];
+                    })
+                }
+            }
+        },
+        directives:{
+            focus:{
+                inserted: function (el) {
+                    el.focus()
+                }
+            }
+        }
+    })
+</script>
+
+</body>
+</html>
