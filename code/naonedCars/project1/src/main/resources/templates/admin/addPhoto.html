@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:v-on="http://www.w3.org/1999/xhtml"><head>
+    <meta charset="UTF-8">
+    <title>addPhoto</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+        ul,li{ padding:0; margin:0; overflow:hidden;}
+        li{ list-style:none;}
+        img{ border:0;}
+        .box{ width:800px;}
+        .box li{ float:left;  height:150px; margin-right:10px;}
+
+        .attention{
+            color: red;
+        }
+        .success{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+<script>
+
+    $(function () {
+        var vue = new Vue({
+            el: '#app',
+            data(){
+                return{
+                    file: null,
+                    files: [],
+                    preview: null,
+                    previews: [],
+                    link: '/addPhoto',
+                    links: '/addPhotos',
+                    upload_status:'',
+                    uploads_status:'',
+                    voiture_id: null
+                };
+            },
+            methods:{
+                getFile: function (event) {
+                    this.file = event.target.files[0];
+                },
+                addPhoto: function () {
+                    this.preview = window.URL.createObjectURL(this.file);
+                    this.voiture_id = 1;
+                    var formData = new FormData();
+                    formData.append("image",this.file);
+                    formData.append("id", this.voiture_id);
+                    axios.post(this.link,formData).then(function (response) {
+                        vue.file = null;
+                        vue.upload_status = response.data.msg;
+                    });
+                },
+                getFiles: function (event) {
+                    this.files = [];
+                    for (var i = 0; i < event.target.files.length; i++) {
+                        this.files.push(event.target.files[i]);
+                    }
+                },
+                addPhotos: function () {
+                    this.previews = [];
+                    this.voiture_id = 1;
+                    var formDatas = new FormData();
+                    for (var i = 0; i < this.files.length; i++) {
+                        formDatas.append("images", this.files[i]);
+                        this.previews.push(window.URL.createObjectURL(this.files[i]));
+                    }
+                    formDatas.append("id", this.voiture_id);
+                    axios.post(this.links, formDatas).then(function (response) {
+                        vue.files = [];
+                        vue.uploads_status = response.data.msg;
+                    });
+                }
+            }
+        });
+    });
+</script>
+
+
+<div id="app">
+    Add single photo:   <br>
+    <input type="file" accept="image/*" id="photoEntrance" name="image" @change="getFile($event)">
+    <button @click="addPhoto">addPhoto</button>
+    <div v-if="upload_status" class="attention">{{upload_status}}</div>
+
+    <div v-if="preview">
+        <img :src="preview" alt="pic" height="150px">
+    </div>
+
+    <br><br>
+
+    Add multiple photos: <br>
+    <input type="file" accept="image/*" id="photoEntrances" name="images" @change="getFiles($event)" multiple/>
+    <button @click="addPhotos">addPhotos</button>
+    <div v-if="uploads_status" class="attention">{{uploads_status}}</div>
+
+
+    <ul v-if="previews.length" class="box">
+        <li v-for="preview in previews">
+            <img :src="preview" alt="pic" height="150px">
+        </li>
+    </ul>
+
+</div>
+</body>
+</html>

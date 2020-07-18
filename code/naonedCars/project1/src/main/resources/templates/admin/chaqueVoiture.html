@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<h1>chaque Voiture</h1>
+
+
+<script>
+    $(function () {
+        var vue = new Vue({
+            el: '#voitureArea',
+            data: {
+                link: 'Voiture/',
+                response: [],
+                id : '',
+            },
+            methods:{
+                getVoitureById:function (id) {
+                    var url = this.link + id;
+                    axios.get(url).then(function (response) {
+                        vue.response = response.data;
+                    });
+                    this.id = '';
+                }
+            }
+        });
+    });
+
+</script>
+<!--<div id="voitureArea">-->
+<!--    <img src="/icon1.png" alt="icon" height="40px"><br>-->
+<!--    Marque: {{response.marque}}<br>-->
+<!--    Modèle: {{response.modèle}}<br>-->
+<!--    Puissance Fiscale: {{response.puissanceFiscale}}<br>-->
+<!--    Mise en circulation: {{response.miseEnCirculationYear}}<br>-->
+<!--    année Modèle: {{response.annéeModèleYear}}<br>-->
+<!--</div>-->
+
+<div id="voitureArea" class="if/else">
+    <img src="/static/icons/icon1.jpg" alt="icon" height="40px"><br>
+
+    <div v-if="response.code == -1">
+        {{response.msg}}
+    </div>
+
+    <div v-if="response.code == 0">
+        Titre: {{response.data.titre}}<br>
+        Marque: {{response.data.marque}}<br>
+        Modèle: {{response.data.modèle}}<br>
+        Puissance Fiscale: {{response.data.puissanceFiscale}}<br>
+        Mise en circulation: {{response.data.miseEnCirculationYear}}<br>
+        Année Modèle: {{response.data.annéeModèleYear}}<br>
+        Nombre De Portes: {{response.data.nombreDePortes}}<br>
+        Type De Véhicule: {{response.data.typeDeVéhicule}}<br>
+        Boîte De Vitesse: {{response.data.boîteDeVitesse}}<br>
+        Nombre De Place: {{response.data.nombreDePlace}}<br>
+        Kilométrage: {{response.data.kilométrage}}<br>
+        Puissance DIN: {{response.data.puissanceDIN}}<br>
+        Carburant: {{response.data.carburant}}<br>
+        Référence: {{response.data.référence}}<br>
+        Couleur: {{response.data.couleur}}<br>
+        Description: {{response.data.description}}<br>
+        <div v-if="response.data.soumisàLOALLD==0">Soumis à LOA/LLD: Non</div> <div v-else>Soumis à LOA/LLD: Oui</div>
+        <div v-if="response.data.Permis==0">Avec permis: Non</div> <div v-else>Avec permis: Oui</div>
+    </div>
+
+    <span>
+        <input type="text" placeholder="input car id"  value="id" name="id" v-on:keyup.enter="getVoitureById(id)" v-model="id">
+    </span>
+
+</div>
+
+</body>
+</html>

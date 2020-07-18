@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>adminPage</h1>
+
+
+    <script>
+        $(function () {
+            var data4Vue = {
+                uri: 'getAllVoitures', //这里与testController中 @RequestMapping(value = "/getAllVoitures")对应
+                beans: []
+            };
+
+            var vue = new Vue({
+                el: '#dataArea',
+                data: data4Vue,
+                mounted:function () {
+                    this.getAllVoitures();
+                },
+                methods:{
+                    getAllVoitures:function () {
+                        var url = this.uri;
+                        axios.get(url).then(function (response) {
+                            vue.beans = response.data;
+                        });
+                    }
+                }
+            });
+        });
+
+    </script>
+    <div id="dataArea">
+        <table>
+            <tr v-for="bean in beans.data">
+                <td></td>
+                <img src="/static/icons/icon1.jpg" alt="icon" height="40px">
+<!--                <td>Marque {{bean.marque}}</td>-->
+<!--                <td>Modèle {{bean.modèle}}</td>-->
+<!--                <td>Puissance Fiscale {{bean.puissanceFiscale}}</td>-->
+<!--                <td>Mise en circulation {{bean.miseEnCirculation}}</td>-->
+                <td>ID: {{bean.id}}</td>
+
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
