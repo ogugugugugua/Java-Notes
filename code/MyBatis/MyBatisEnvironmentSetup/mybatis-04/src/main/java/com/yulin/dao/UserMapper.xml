@@ -16,8 +16,12 @@
 
 <!--    注意这里使用了是resultMap而不再是resultType-->
     <select id="getUserById" parameterType="int" resultMap="UserMap">
-        select * from mybatis.user where id=#{id};
+        select * from mybatis.user where id=#{ByID};
     </select>
 
+<!--    分页查询：-->
+    <select id="getUserByLimit" parameterType="map" resultMap="UserMap">
+        select * from mybatis.user limit #{start},#{numberItem};
+    </select>
 
 </mapper>

@@ -13,10 +13,10 @@ import java.sql.SQLException;
 
 @MappedJdbcTypes(JdbcType.INTEGER)  //声明JdbcType为数据库的整型
 @MappedTypes(value = SexEnum.class) //声明JavaType为SexEnum
-
 public class SexTypeHandler extends BaseTypeHandler<SexEnum> {
     /**
      * 设置非空性别参数
+     *
      * @param preparedStatement
      * @param i
      * @param sexEnum
@@ -30,15 +30,16 @@ public class SexTypeHandler extends BaseTypeHandler<SexEnum> {
 
     /**
      * 根据列名读取性别
+     *
      * @param resultSet
-     * @param s 1/2
+     * @param s         1/2
      * @return SexEnum
      * @throws SQLException
      */
     @Override
     public SexEnum getNullableResult(ResultSet resultSet, String s) throws SQLException {
         int sex = resultSet.getInt(s);
-        if (sex!=1 && sex!=2){
+        if (sex != 1 && sex != 2) {
             return null;
         }
         return SexEnum.getEnumById(sex);
@@ -46,15 +47,16 @@ public class SexTypeHandler extends BaseTypeHandler<SexEnum> {
 
     /**
      * 根据下标读取性别
+     *
      * @param resultSet
-     * @param i 1/2
+     * @param i         1/2
      * @return SexEnum
      * @throws SQLException
      */
     @Override
     public SexEnum getNullableResult(ResultSet resultSet, int i) throws SQLException {
         int sex = resultSet.getInt(i);
-        if (sex!=1 && sex!=2){
+        if (sex != 1 && sex != 2) {
             return null;
         }
         return SexEnum.getEnumById(sex);
@@ -62,15 +64,16 @@ public class SexTypeHandler extends BaseTypeHandler<SexEnum> {
 
     /**
      * 根据存储过程读取性别
+     *
      * @param callableStatement
-     * @param i 1/2
+     * @param i                 1/2
      * @return SexEnum
      * @throws SQLException
      */
     @Override
     public SexEnum getNullableResult(CallableStatement callableStatement, int i) throws SQLException {
         int sex = callableStatement.getInt(i);
-        if (sex!=1 && sex!=2){
+        if (sex != 1 && sex != 2) {
             return null;
         }
         return SexEnum.getEnumById(sex);

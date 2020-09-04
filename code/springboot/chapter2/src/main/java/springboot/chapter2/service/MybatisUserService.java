@@ -1,4 +1,11 @@
 package springboot.chapter2.service;
 
-public class MybatisUserService {
+import org.springframework.stereotype.Service;
+import springboot.chapter2.pojo.UserForMybatis;
+
+import java.util.List;
+
+@Service
+public interface MybatisUserService {
+    List<UserForMybatis> findall();
 }

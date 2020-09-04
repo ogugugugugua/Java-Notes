@@ -7,6 +7,10 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class UserMapperTest {
 
     static Logger logger = Logger.getLogger(UserMapperTest.class);
@@ -31,4 +35,20 @@ public class UserMapperTest {
         logger.error("error: testLog4j");
     }
 
+    @Test
+    public void getUserByPage(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+
+        Map<String,Integer> map = new HashMap<String, Integer>();
+        map.put("start",1);
+        map.put("numberItem", 2);
+
+        List<User> userByPage = mapper.getUserByLimit(map);
+        for (User user : userByPage) {
+            System.out.println(user);
+        }
+
+        sqlSession.close();
+    }
 }

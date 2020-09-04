@@ -9,7 +9,6 @@
 
     <!--启动注解识别-->
     <context:annotation-config/>
-
     <context:component-scan base-package="com.yulin.tmall.controller">
         <context:include-filter type="annotation"
                                 expression="org.springframework.stereotype.Controller"/>
@@ -20,7 +19,7 @@
     <!--开通静态资源的访问-->
     <mvc:default-servlet-handler />
 
-    <!-- 视图定位 -->
+    <!-- 视图解析器 -->
     <bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass"

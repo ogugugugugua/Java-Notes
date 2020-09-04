@@ -20,14 +20,15 @@
 
 <div id="todo-app">
     <div>
-        <input type="text" placeholder="Add new Todo here" v-model="newTodoTitle" v-on:keyup.enter="addTodo">
+        Please add new TODOs in the box below and press enter.
+        <br>
+        <input type="text" placeholder="Add here" v-model="newTodoTitle" v-on:keyup.enter="addTodo">
     </div>
 
     <div>
         <ul>
-            <li v-for="todo in todos" :key="todo.id">
+            <li v-for="todo in filteredShowTodos" :key="todo.id">
                 <span v-bind:class="{completed: todo.completed}">{{todo.title}}</span>
-<!--                <span>{{todo.id}}</span>-->
                 <input type="button" value="completed"
                        v-on:click="markAsCompleted(todo)"
                        v-if="!todo.completed">
@@ -47,13 +48,30 @@
     </div>
 
     <div>
-        <span>{{numNotCompleted}} items left</span>
+        <span>Totally {{numNotCompleted}} items left</span> <br>
         <span>
-            <input type="button" value="All Done" v-on:click="markAllAsCompleted">
-            <input type="button" value="doing" v-on:click="showDoing">
-            <input type="button" value="show completed" v-on:click="showCompleted">
-            <input type="button" value="delete completed" v-on:click="deleteCompleted">
-            <input type="button" value="delete all" v-on:click="deleteAll">
+            <input type="button" value="Set All Done"
+                   v-on:click="markAllAsCompleted">
+            <br>
+            <input type="button" value="delete completed"
+                   v-on:click="deleteCompleted"
+                   v-if="numAllTodos!=0">
+            <input type="button" value="delete all"
+                   v-on:click="deleteAll"
+                   v-if="numAllTodos!=0">
+            <br>
+            <input type="button" value="show doing"
+                   v-on:click="showDoing"
+                   v-bind:class="{selected:show==='doing'}"
+                   v-if="numAllTodos!=0">
+            <input type="button" value="show completed"
+                   v-on:click="showCompleted"
+                   v-bind:class="{selected:show==='completed'}"
+                   v-if="numAllTodos!=0">
+            <input type="button" value="show all"
+                   v-on:click="showAll"
+                   v-bind:class="{selected:show==='all'}"
+                   v-if="numAllTodos!=0">
         </span>
     </div>
 </div>
@@ -67,12 +85,25 @@
         data: function () {
             return{
                 todos:[],
-                newTodoTitle: ''
+                newTodoTitle: '',
+                show: 'all'
             }
         },
         computed:{
             numNotCompleted: function () {
                 return this.todos.filter(todo => !todo.completed).length;
+            },
+            numAllTodos: function () {
+                return this.todos.length
+            },
+            filteredShowTodos: function () {
+                if (this.show === 'completed'){
+                    return this.todos.filter(todo => todo.completed);
+                }else if (this.show ==='doing'){
+                    return this.todos.filter(todo => !todo.completed);
+                }else {
+                    return this.todos;
+                }
             }
         },
         methods:{
@@ -112,11 +143,7 @@
             },
             deleteCompleted: function () {
                 if (confirm("Delete all completed TODOs?")) {
-                    this.todos.forEach((item)=>{
-                        if (item.completed){
-                            this.todos.splice(this.todos.indexOf(item), 1);
-                        }
-                    })
+                    this.todos = this.todos.filter(todo => !todo.completed)
                 }
             },
             deleteAll: function () {
@@ -125,6 +152,15 @@
                         this.todos = [];
                     })
                 }
+            },
+            showCompleted: function () {
+                this.show = 'completed'
+            },
+            showDoing: function () {
+                this.show = 'doing'
+            },
+            showAll: function () {
+                this.show = 'all'
             }
         },
         directives:{

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head><meta charset="UTF-8"><title>Vue Todo Tutorial</title></head>
+<style>
+    .empty{
+        border-color: red;
+    }
+</style>
+<body>
+<div id="app">
+    <input type="text" v-model="message" v-bind:class="{empty: !count}">
+    <input type="button" value="send" v-on:click="send">
+    <div v-if="notnull">value = {{message}}</div>
+    <div v-else>please input message↑</div>
+    <div>count = {{count}}</div>
+    <div>calcul = {{calcul}}</div>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: function () {
+            return {message: ''}
+        },
+        methods: {
+            send: function () {
+                if (this.message !== '') {
+                    alert("send successful");
+                    this.message = ''
+                } else {
+                    alert("please input message")
+                }
+            }
+        },
+        computed:{
+            count:function () {
+                return this.message.length;
+            },
+            calcul:function () {
+                return this.count *2;
+            },
+            notnull:function () {
+                return this.message!=='';
+            }
+        }
+    })
+</script>
+</html>

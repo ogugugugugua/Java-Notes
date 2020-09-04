@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml"
+      xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Todo UI</title>
+    <style>
+        .completed {
+            text-decoration: line-through;
+        }
+        .selected {
+            color: red;
+        }
+        .inputting {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div id="todo-app">
+    <div>
+        Please add new TODOs in the box below and press enter.
+        <br>
+        <input type="text" placeholder="Add here" v-model="newTodoTitle" v-on:keyup.enter="addTodo">
+    </div>
+
+    <div>
+        <ul>
+            <li v-for="todo in filteredShowTodos" :key="todo.id">
+                <span v-bind:class="{completed: todo.completed}">{{todo.title}}</span>
+                <input type="button" value="completed"
+                       v-on:click="markAsCompleted(todo)"
+                       v-if="!todo.completed">
+                <input type="button" value="Not completed"
+                       v-on:click="markAsNotCompleted(todo)"
+                       v-if="todo.completed">
+                <input type="button" value="delete"
+                       v-on:click="deleteTodo(todo)">
+                <input type="button" value="edit" v-on:click="pressEditButton(todo)">
+                <input type="text" placeholder="input and press enter"
+                       v-if="todo.buttonEdit"
+                       v-model="newTodoTitle"
+                       v-on:keyup.enter="editTodo(todo)"
+                       v-focus="true">
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <span>Totally {{numNotCompleted}} items left</span> <br>
+        <span>
+            <input type="button" value="Set All Done"
+                   v-on:click="markAllAsCompleted">
+            <br>
+            <input type="button" value="delete completed"
+                   v-on:click="deleteCompleted"
+                   v-if="numAllTodos!=0">
+            <input type="button" value="delete all"
+                   v-on:click="deleteAll"
+                   v-if="numAllTodos!=0">
+            <br>
+            <input type="button" value="show doing"
+                   v-on:click="showDoing"
+                   v-bind:class="{selected:show==='doing'}"
+                   v-if="numAllTodos!=0">
+            <input type="button" value="show completed"
+                   v-on:click="showCompleted"
+                   v-bind:class="{selected:show==='completed'}"
+                   v-if="numAllTodos!=0">
+            <input type="button" value="show all"
+                   v-on:click="showAll"
+                   v-bind:class="{selected:show==='all'}"
+                   v-if="numAllTodos!=0">
+        </span>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+<script>
+    let Id = 0;
+    let inputting = false;
+
+    var app = new Vue({
+        el: '#todo-app',
+        data: function () {
+            return{
+                todos:[],
+                newTodoTitle: '',
+                show: 'all'
+            }
+        },
+        computed:{
+            numNotCompleted: function () {
+                return this.todos.filter(todo => !todo.completed).length;
+            },
+            numAllTodos: function () {
+                return this.todos.length
+            },
+            filteredShowTodos: function () {
+                if (this.show === 'completed'){
+                    return this.todos.filter(todo => todo.completed);
+                }else if (this.show ==='doing'){
+                    return this.todos.filter(todo => !todo.completed);
+                }else {
+                    return this.todos;
+                }
+            }
+        },
+        methods:{
+            addTodo: function () {
+                if (this.newTodoTitle.trim()!==''){
+                    this.todos.push({id: Id++, title: this.newTodoTitle, completed: false, buttonEdit: false});
+                    this.newTodoTitle = '';
+                }
+            },
+            markAsCompleted: function (todo) {
+                todo.completed = true;
+            },
+            markAsNotCompleted: function (todo) {
+                todo.completed = false;
+            },
+            deleteTodo: function (todo) {
+                if (!confirm("Delete this TODO?")) {
+                    return
+                }
+                this.todos.splice(this.todos.indexOf(todo), 1);
+            },
+            pressEditButton: function (todo) {
+                todo.buttonEdit = !todo.buttonEdit;
+                this.newTodoTitle = '';
+            },
+            editTodo: function (todo) {
+                if (this.newTodoTitle.trim() !== '') {
+                    this.todos.splice(this.todos.indexOf(todo), 1);
+                    this.todos.push({id: todo.id, title: this.newTodoTitle, completed: false, buttonEdit: false});
+                    this.newTodoTitle = '';
+                }
+            },
+            markAllAsCompleted: function () {
+                this.todos.forEach((item) => {
+                    this.markAsCompleted(item)
+                });
+            },
+            deleteCompleted: function () {
+                if (confirm("Delete all completed TODOs?")) {
+                    this.todos = this.todos.filter(todo => !todo.completed)
+                }
+            },
+            deleteAll: function () {
+                if (confirm("Delete all TODOs?")) {
+                    this.todos.forEach((item)=>{
+                        this.todos = [];
+                    })
+                }
+            },
+            showCompleted: function () {
+                this.show = 'completed'
+            },
+            showDoing: function () {
+                this.show = 'doing'
+            },
+            showAll: function () {
+                this.show = 'all'
+            }
+        },
+        directives:{
+            focus:{
+                inserted: function (el) {
+                    el.focus()
+                }
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

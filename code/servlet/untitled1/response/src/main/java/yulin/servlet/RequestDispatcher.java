@@ -7,7 +7,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class redirect extends HttpServlet {
+/**
+ * 请求转发：相当于在一个共同的ServletContext下进行Servlet的请求转发，直接指定对应Servlet名字即可
+ *   -----           -----------            -----
+ *   | A |    --->   | Servlet  |   --->    | B |
+ *   |   |    <---   | Context  |   <---    |   |
+ *   -----           -----------            -----
+ */
+public class RequestDispatcher extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doGet(req, resp);
@@ -16,7 +23,8 @@ public class redirect extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletContext servletContext = this.getServletContext();
-        System.out.println("begin redirect");
         servletContext.getRequestDispatcher("/basicServlet").forward(req, resp);
     }
 }
+
+

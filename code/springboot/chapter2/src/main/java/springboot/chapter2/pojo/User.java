@@ -1,12 +1,12 @@
-package springboot.chapter2.config;
+package springboot.chapter2.pojo;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Getter
-@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 @Component("user")
 public class User {
     @Value("1")
@@ -16,4 +16,27 @@ public class User {
     @Value("note1")
     private String Note;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getNote() {
+        return Note;
+    }
+
+    public void setNote(String note) {
+        Note = note;
+    }
 }

@@ -1,8 +1,10 @@
 package com.yulin.dao;
 
 import com.yulin.pojo.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 操作数据库对象的一些方法
@@ -13,7 +15,7 @@ public interface UserMapper {
     List<User> getUserList();
 
     //select2
-    User getUserById(int id);
+    User getUserById(@Param("ByID") int id);
 
     //update
     void updateUser(User user);
@@ -25,4 +27,8 @@ public interface UserMapper {
     void deleteUser(int id);
 
 
+    /**
+     * 分页查询
+     */
+    List<User> getUserByLimit(Map<String,Integer> map);
 }

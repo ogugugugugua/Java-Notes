@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "springboot2x")
-public class UserForTest {
+public class UserForJpa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id = null;
@@ -50,7 +50,7 @@ public class UserForTest {
 
     @Override
     public String toString() {
-        return "UserForTest{" +
+        return "UserForJpa{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", note='" + note + '\'' +

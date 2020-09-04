@@ -1,4 +1,7 @@
 package springboot.chapter2.service;
 
-public class UserService {
+import springboot.chapter2.pojo.User;
+
+public interface UserService {
+    public void print(User user);
 }
