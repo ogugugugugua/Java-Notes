@@ -27,6 +27,8 @@
 | 服务配置     |                apolo；Nacos(推荐)                |
 | 服务总线     |                      Nacos                       |
 
+---
+
 - 约定>配置>编码
 
 - Maven中Dependency和DependencyManagement的区别：
@@ -34,3 +36,23 @@
   DependencyManagement元素提供一种管理依赖版本号的方式，一般DependencyManagement用于最顶层的父工程POM，能让所有的子项目中引用一个依赖而**不用显式列出版本号**。也方便一致性修改。
 
   但要注意：DependencyManagement只是声明依赖，而**不实现引入**，因此子项目需要显式的声明需要用的依赖。
+
+---
+
+## 支付模块构建
+
+抽象步骤：
+
+- cloud-provide-payment8001微服务提供者支付module
+- 热部署Devtools
+- cloud-consumer-order80微服务消费者订单module
+- 工程重构
+
+具体步骤：
+
+- 建立module
+- 改POM
+- 写YML
+- 主启动
+- 业务类
+
