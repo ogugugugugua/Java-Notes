@@ -2,14 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="022bd422-065a-44e5-9230-f0e9a9e60f79" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../SpringCloud/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringCloud/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringCloud/test.md" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-provider-payment8001/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../note/springcloud.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../note/springcloud.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -41,13 +49,17 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="add_unversioned_files" value="$PROJECT_DIR$/test.md" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/test.md&#10;C:/javaNotes/code/SpringCloud/cloud-provider-payment8001/pom.xml" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/cloud-provider-payment8001" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\javaNotes\code\SpringCloud\cloud-provider-payment8001" />
       <recent name="C:\javaNotes\code\SpringCloud" />
     </key>
   </component>
@@ -76,6 +88,8 @@
       <workItem from="1599224298454" duration="2580000" />
       <workItem from="1599228524343" duration="2566000" />
       <workItem from="1599232517660" duration="105000" />
+      <workItem from="1599234661122" duration="2946000" />
+      <workItem from="1599238381001" duration="39000" />
     </task>
     <task id="LOCAL-00001" summary="gitignore">
       <created>1599229022271</created>
@@ -135,34 +149,38 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="560" y="132" key="CommitChangelistDialog2/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599229021445" />
-    <state width="1877" height="287" key="GridCell.Tab.0.bottom" timestamp="1599232484460">
+    <state width="1877" height="287" key="GridCell.Tab.0.bottom" timestamp="1599238371229">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="287" key="GridCell.Tab.0.bottom/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599232484460" />
+    <state width="1877" height="287" key="GridCell.Tab.0.bottom/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599238371229" />
     <state width="1397" height="228" key="GridCell.Tab.0.bottom/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1599224298445" />
-    <state width="1877" height="287" key="GridCell.Tab.0.center" timestamp="1599232484460">
+    <state width="1877" height="287" key="GridCell.Tab.0.center" timestamp="1599238371229">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="287" key="GridCell.Tab.0.center/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599232484460" />
+    <state width="1877" height="287" key="GridCell.Tab.0.center/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599238371229" />
     <state width="1397" height="228" key="GridCell.Tab.0.center/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1599224298444" />
-    <state width="1877" height="287" key="GridCell.Tab.0.left" timestamp="1599232484460">
+    <state width="1877" height="287" key="GridCell.Tab.0.left" timestamp="1599238371229">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="287" key="GridCell.Tab.0.left/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599232484460" />
+    <state width="1877" height="287" key="GridCell.Tab.0.left/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599238371229" />
     <state width="1397" height="228" key="GridCell.Tab.0.left/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1599224298444" />
-    <state width="1877" height="287" key="GridCell.Tab.0.right" timestamp="1599232484460">
+    <state width="1877" height="287" key="GridCell.Tab.0.right" timestamp="1599238371229">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="287" key="GridCell.Tab.0.right/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599232484460" />
+    <state width="1877" height="287" key="GridCell.Tab.0.right/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599238371229" />
     <state width="1397" height="228" key="GridCell.Tab.0.right/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1599224298444" />
-    <state x="64" y="110" width="1479" height="716" key="SettingsEditor" timestamp="1599228807003">
+    <state x="64" y="110" width="1479" height="716" key="SettingsEditor" timestamp="1599238316732">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="64" y="110" width="1479" height="716" key="SettingsEditor/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599228807003" />
+    <state x="64" y="110" width="1479" height="716" key="SettingsEditor/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599238316732" />
     <state x="1968" y="92" width="1203" height="716" key="SettingsEditor/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1599224679061" />
-    <state x="640" y="364" key="com.intellij.ide.util.TipDialog" timestamp="1599232519092">
+    <state x="640" y="364" key="com.intellij.ide.util.TipDialog" timestamp="1599238436081">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="640" y="364" key="com.intellij.ide.util.TipDialog/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599232519092" />
+    <state x="640" y="364" key="com.intellij.ide.util.TipDialog/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599238436081" />
+    <state x="334" y="234" key="new project wizard" timestamp="1599236574971">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="334" y="234" key="new project wizard/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599236574971" />
   </component>
 </project>
