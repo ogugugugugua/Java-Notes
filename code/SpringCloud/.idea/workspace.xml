@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="022bd422-065a-44e5-9230-f0e9a9e60f79" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/cloud-provider-payment8001/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-provider-payment8001/src/main/java/com/yulin/springcloud/PaymentMain8001.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-provider-payment8001/src/main/java/com/yulin/springcloud/PaymentMain8001.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../note/springcloud.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../note/springcloud.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,6 +88,7 @@
       <workItem from="1599232517660" duration="105000" />
       <workItem from="1599234661122" duration="2946000" />
       <workItem from="1599238381001" duration="39000" />
+      <workItem from="1599238428979" duration="215000" />
     </task>
     <task id="LOCAL-00001" summary="gitignore">
       <created>1599229022271</created>
