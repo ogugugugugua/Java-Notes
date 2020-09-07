@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AddTwoNumbers/AddTwoNumbers.iml" filepath="$PROJECT_DIR$/AddTwoNumbers/AddTwoNumbers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KeyboardRow/Keyboard Row.iml" filepath="$PROJECT_DIR$/KeyboardRow/Keyboard Row.iml" />
       <module fileurl="file://$PROJECT_DIR$/LongestPalindromicSubstring/LongestPalindromicSubstring.iml" filepath="$PROJECT_DIR$/LongestPalindromicSubstring/LongestPalindromicSubstring.iml" />
       <module fileurl="file://$PROJECT_DIR$/LongestSubstringWithoutRepeatingCharacters/LongestSubstringWithoutRepeatingCharacters.iml" filepath="$PROJECT_DIR$/LongestSubstringWithoutRepeatingCharacters/LongestSubstringWithoutRepeatingCharacters.iml" />
       <module fileurl="file://$PROJECT_DIR$/MedianOfTwoSortedArrays/MedianOfTwoSortedArrays.iml" filepath="$PROJECT_DIR$/MedianOfTwoSortedArrays/MedianOfTwoSortedArrays.iml" />
