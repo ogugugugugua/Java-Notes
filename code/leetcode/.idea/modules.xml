@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/LongestSubstringWithoutRepeatingCharacters/LongestSubstringWithoutRepeatingCharacters.iml" filepath="$PROJECT_DIR$/LongestSubstringWithoutRepeatingCharacters/LongestSubstringWithoutRepeatingCharacters.iml" />
       <module fileurl="file://$PROJECT_DIR$/MedianOfTwoSortedArrays/MedianOfTwoSortedArrays.iml" filepath="$PROJECT_DIR$/MedianOfTwoSortedArrays/MedianOfTwoSortedArrays.iml" />
       <module fileurl="file://$PROJECT_DIR$/StreamingExercisesLeetCode/StreamingExercisesLeetCode.iml" filepath="$PROJECT_DIR$/StreamingExercisesLeetCode/StreamingExercisesLeetCode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TencentExercise/TencentExercise.iml" filepath="$PROJECT_DIR$/TencentExercise/TencentExercise.iml" />
       <module fileurl="file://$PROJECT_DIR$/TwoSum/TwoSum.iml" filepath="$PROJECT_DIR$/TwoSum/TwoSum.iml" />
       <module fileurl="file://$PROJECT_DIR$/leetcode.iml" filepath="$PROJECT_DIR$/leetcode.iml" />
     </modules>
