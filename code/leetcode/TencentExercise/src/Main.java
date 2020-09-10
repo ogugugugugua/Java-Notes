@@ -6,13 +6,17 @@ public class Main {
     static int updatedIndex = 0;
     static int marker = 0;
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String input = "HG[3|B[2|CAFSHH]]F";
+//        Scanner sc = new Scanner(System.in);
 //        String input = sc.nextLine();
+        String input = "HG[3|B[2|CAFSHH]]F";
         Main test = new Main();
-//        String output = test.decode(0, input);
-//        System.out.println(output);
+
+
+        System.out.println(test.decode(0, input));
+
         test.decode2(input);
+
+        System.out.println(test.decode3(input));
     }
 
     public String decode(int startIndex, String string) {
@@ -46,9 +50,14 @@ public class Main {
         return temp;
     }
 
+    /**
+     * 这个解法使用到了直接替换
+     * @param string
+     * @return
+     */
     public String decode2(String string){
 
-        while (string.contains("]")){
+        while (string.contains("[")){
             int right = string.indexOf(']');
             int left = string.lastIndexOf('[');
             int spilt = string.lastIndexOf('|');
@@ -63,13 +72,24 @@ public class Main {
         return string;
     }
 
-//    public String decode3(String string) {
-//        int left = 0, right = 0, split = 0;
-//        for (int i = 0; i < string.length(); i++) {
-//            if (string.charAt(i) == '[')
-//                left = i;
-//
-//        }
-//    }
+    /**
+     * 这个解法和decode2很相似，稍微引入了递归的思想，都是每次解码最内层的括号里面内容
+     * @param string
+     * @return
+     */
+    public String decode3(String string) {
+        if (string.contains("[")){
+            int right = string.indexOf(']');
+            int left = string.lastIndexOf('[');
+            int spilt = string.lastIndexOf('|');
+
+            int repeatedNum = Integer.parseInt(string.substring(left+1,spilt));
+            String content = string.substring(spilt+1,right);
+            String newString = String.join("", Collections.nCopies(repeatedNum, content));
+            string = string.substring(0, left) + newString + string.substring(right + 1, string.length());
+            return decode3(string);
+        }
+        return string;
+    }
 
 }
