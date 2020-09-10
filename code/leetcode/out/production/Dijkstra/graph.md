@@ -1,12 +1,12 @@
 /*
-number of nodes: n
-number of edges: m
-starting point: start
+- number of nodes: n
+- number of edges: m
+- starting point: start
 
-输入邻接矩阵
-         * example
-         * 1 2 5 : graph[1][2] = 5
-         * 2 3 7 : graph[2][3] = 7
+输入邻接矩阵:
+- example
+- 1 2 5 : graph[1][2] = 5
+- 2 3 7 : graph[2][3] = 7
 */
 
 --------------------------------------------------------
@@ -15,14 +15,25 @@ starting point: start
 
 
 6
+
 9
+
 0
+
 0 1 1
+
 0 2 12
+
 1 2 9
+
 1 3 3
+
 2 4 5
+
 3 2 4
+
 3 4 13
+
 3 5 15
+
 4 5 4
