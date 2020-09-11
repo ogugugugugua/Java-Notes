@@ -1,6 +1,8 @@
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
     static int updatedIndex = 0;
@@ -92,4 +94,19 @@ public class Main {
         return string;
     }
 
+    public String decode4(String string){
+        String pattern = "\\[(\\d+)\\|(\\w+)\\]";
+        Pattern pc = Pattern.compile(pattern);
+        Matcher m = pc.matcher(string);
+        while (m.find()) {
+            int repeatedNum = Integer.valueOf(m.group(1));
+            String newString = "";
+            for (int i = 0; i < repeatedNum; i++) {
+                newString += m.group(2);
+            }
+            string = m.replaceFirst(newString);
+            m = pc.matcher(string);
+        }
+        return string;
+    }
 }
