@@ -28,3 +28,7 @@
 |  8   |  4   |    5    | MAX(4+OPT(6), OPT(7)) = 13 |
 
 便可以知道最后算出来max收入为13。
+
+代码：https://github.com/ogugugugugua/Java-Notes/blob/master/code/leetcode/DP/src/Main.java
+
+测试数据：https://github.com/ogugugugugua/Java-Notes/blob/master/code/leetcode/DP/src/data.txt
