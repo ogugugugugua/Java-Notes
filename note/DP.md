@@ -57,7 +57,11 @@
 
 ### 递归解法：
 
-对于数组`arr`和固定值`S`，如果选择`arr[i]`，其值为`V_i`，则需要在剩下的i-1个数中拼凑出`S - V_i`。如果不选`arr[i]`，则需要在剩下的`i-1`个数中拼凑出`S`。 那么我们定义一个名为`public boolean rec_subset(int[] arr, int i, int S)`的函数，其中`arr`是数组，`i`是下标，S是目标固定值，其运算规则可以定义为`rec_subset(arr, i, S) = rec_subset(arr, i-1, S-V[i]) || rec_subset(arr, i-1,S)`，对于这个递归函数，其出口可以有3个可能：
+对于数组`arr`和固定值`S`
+
+- 如果选择`arr[i]`，其值为`V_i`，则需要在剩下的i-1个数中拼凑出`S - V_i`。
+- 如果不选`arr[i]`，则需要在剩下的`i-1`个数中拼凑出`S`。 
+- 那么我们定义一个名为`public boolean rec_subset(int[] arr, int i, int S)`的函数，其中`arr`是数组，`i`是下标，S是目标固定值，其运算规则可以定义为`rec_subset(arr, i, S) = rec_subset(arr, i-1, S-V[i]) || rec_subset(arr, i-1, S)`，对于这个递归函数，其出口可以有3个可能：
 
 1. `if(S==0) {return true;}`即当已经拼凑出这个固定值了，就可以返回true
 2. `if(i==0) {return arr[i]==S;}` 即当数组已经遍历到边界了，若相等即拼凑成功返回true，否则返回false
