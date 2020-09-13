@@ -31,9 +31,13 @@
 
 便可以知道最后算出来max收入为13。
 
-代码：https://github.com/ogugugugugua/Java-Notes/blob/master/code/leetcode/DP/src/Main.java
+### 代码：
 
-测试数据：https://github.com/ogugugugugua/Java-Notes/blob/master/code/leetcode/DP/src/data.txt
+https://github.com/ogugugugugua/Java-Notes/blob/master/code/leetcode/DP/src/Main.java
+
+### 测试数据：
+
+https://github.com/ogugugugugua/Java-Notes/blob/master/code/leetcode/DP/src/data.txt
 
 ---
 
@@ -67,7 +71,17 @@
 2. `if(i==0) {return arr[i]==S;}` 即当数组已经遍历到边界了，若相等即拼凑成功返回true，否则返回false
 3. `if(arr[i]>S) {return rec_subset(arr, i-1, S)}` 即当前值>固定值，只需要跳过当前值即可，减少遍历数量。(对所有正整数数组有效)。
 
+### 非递归解法：
 
+
+
+### 代码：
+
+https://github.com/ogugugugugua/Java-Notes/blob/master/code/leetcode/DP/src/Main3.java
+
+### 测试数据：
+
+https://github.com/ogugugugugua/Java-Notes/blob/master/code/leetcode/DP/src/data.txt
 
 
 
