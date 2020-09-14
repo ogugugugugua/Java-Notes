@@ -1,5 +1,19 @@
 # 动态规划
 
+## 动态规划问题特点：
+
+1. 计数：
+   1. 有多少种方式走到右下角
+   2. 有多少种方式选出k个数是的和是sum
+2. 求最大最小值：
+   1. 从左上角走到右下角路径的最大数字和
+   2. 最长上升序列长度
+3. 求存在性：
+   1. 取石子游戏，先手是否必胜
+   2. 能不能选出k个数使得和是sum
+
+---
+
 ## 经典问题引入：
 
 > 斐波那契数列 `fib(n) = fib(n-1) + fib(n-2)`，如果按照指定n大小去求值的话，就会重复计算很多次，算法的复杂度是`O(n^2)`，因此我们可以考虑换个方向来计算：已知`fib(1)`和`fib(2)`先计算`fib(3)`，然后算`fib(4)`，再算`fib(5)`……这样每往后算一位都可以直接拿前面算出来的放在内存里的值，就会很快，算法复杂度降为`O(n)`，这样的思想即为动态规划。
@@ -73,7 +87,7 @@ https://github.com/ogugugugugua/Java-Notes/blob/master/code/leetcode/DP/src/data
 
 ### 非递归解法：
 
-
+定义一个二维数组来保存过去计算出来的值。 
 
 ### 代码：
 
@@ -88,3 +102,4 @@ https://github.com/ogugugugugua/Java-Notes/blob/master/code/leetcode/DP/src/data
 ---
 
 来源教程： https://www.bilibili.com/video/BV12W411v7rd/?spm_id_from=333.788.videocard.0
+
