@@ -50,7 +50,12 @@ public class Main3 {
             }
         }
         System.out.println(n-busy);
-
     }
+
+//    public static int minDay(int[] work, int[] gym){
+//        int n = work.length;
+//        int[][] dp = new int[n][3];
+//        dp[0][0] = (work[0] == 0 && gym[0] == 0) ? 1 : 0;   //0: 休息
+//    }
 }
 
