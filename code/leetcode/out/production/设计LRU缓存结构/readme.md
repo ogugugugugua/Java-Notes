@@ -44,4 +44,3 @@ $$
 -2 \times 10^9 \leq x,y \leq 2 \times 10^9
 $$
 
-
