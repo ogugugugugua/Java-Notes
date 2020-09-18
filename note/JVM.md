@@ -26,6 +26,10 @@
 
 因此所谓的**JVM调优**，都会集中在**堆**和方法区那里，方法区可以看成是一个特殊的堆。
 
+细化之后是这个样子：
+
+![未命名文件 (3)](https://user-images.githubusercontent.com/17522733/93598189-a247be00-f9bc-11ea-8819-9a6816ceb2ef.png)
+
 ---
 
 ## 类加载器
@@ -44,15 +48,32 @@
 ### 类别：
 
 - 虚拟机自带的加载器
-- 启动类的加载器/根加载器
-- 扩展类加载器 `ExtClassLoader`
-- 应用程序加载器 `AppClassLoader`
+- 启动类的加载器/根加载器 `Bootstrap`： 
+  - 用Native代码实现的类加载器。负责将`<Java_Runtime_Home>/lib`下面的类库加载到内存中(比如rt.jar)。由于引导类加载器涉及到虚拟机本地实现细节，所以开发者无法直接获取到启动类加载器的引用，所以不允许直接通过引用进行操作。
+- 扩展类加载器 `ExtClassLoader`：
+  - 由Sun的`sum.misc.Launcher$ExtClassLoader`实现的。负责将`<Java_Runtime_Home>/lib/ext`或者由系统变量`java.ext.dir`指定位置中的类库加载到内存中。开发者可以直接使用标准扩展类加载器。
+- 应用程序加载器 `AppClassLoader`：
+  - 由Sun的`sum.misc.Launcher$AppClassLoader`实现的。负责将系统类路径`CLASSPATH`中指定的类库加载到内存中。开发者可以直接使用应用程序加载器。
 
 ---
 
 ## 双亲委派机制
 
-用于保证安全。会逐层往下寻找类的所在包，比如先在ROOT根加载器中找，然后再去EXT扩展类加载器中找，最后在APP应用程序加载器中找，如果APP和ROOT中有同名包，则会优先执行ROOT中的那个。
+某个特定的类加载器在接到加载类的请求时，首先将加载任务委托给父类加载器，**依次递归**，如果父类加载器可以完成类加载任务，就成功返回；只有父类加载器无法完成此加载任务时，才自己去加载。
+
+> 白话文描述： 用于保证安全。会逐层往下寻找类的所在包，比如先在ROOT根加载器中找，然后再去EXT扩展类加载器中找，最后在APP应用程序加载器中找，如果APP和ROOT中有同名包，则会优先执行ROOT中的那个。
+
+几点思考：
+
+1. Java虚拟机的第一个类加载器是Bootstrap，这个加载器很特殊，**它不是Java类，因此它不需要被别人加载，它嵌套在Java虚拟机内核里面，也就是JVM启动的时候Bootstrap就已经启动，它是用C++写的二进制代码（不是字节码）**，它可以去加载别的类。这也是我们在测试时为什么发现`System.class.getClassLoader()`结果为null的原因，这并不表示System这个类没有类加载器，而是它的加载器比较特殊，是`BootstrapClassLoader`，由于它不是Java类，因此获得它的引用肯定返回null。
+
+2. 双亲委托机制的意义：防止内存中出现多份同样的字节码：
+
+   如果两个类A和类B都要加载System类，如果不用委托而是自己各自加载，那么内存中就会出现两份System字节码。
+
+   在使用委托机制的情况下，两次System类的加载都交给了Bootstrap来处理，就可以防止重复加载的情况发生。
+
+
 
 ---
 
@@ -108,11 +129,86 @@ Method area
 
 ---
 
-## 三种JVM
+## 堆
+
+堆内存的大小是可以调节的（调优）。 类的实例，方法，常量，变量等会放在堆中。保存的是引用类型的真实对象。
+
+---
 
 ## 新生区VS老年区VS永久区
 
+新生区：所有的对象都在Eden区诞生。minor gc能留下来的去到了幸存者区(0/1)。 
+
+![image-20200916233558425](https://user-images.githubusercontent.com/17522733/93395012-7110a600-f875-11ea-931c-373cedf73a8e.png)
+
+
+
+在物理实现上，`年轻代空间PSYongGen + 老年代空间ParOldGen = Runtime.getRuntime().totalMemory();` 也就是说元空间这个东西在逻辑上存在，在物理上不存在。
+
+---
+
 ## 堆内存调优
+
+### 当遇到OOM的时候，可以：
+
+1. 尝试扩大堆内存的空间，比如 `-Xms1024m -Xmx1024m -XX:+PrintGCDetails`
+2. 如果不行的话，分析内存，看一下哪里出现了问题
+
+### 常用命令：
+
+1. `-Xms` 设置初始化内存分配大小
+2. `-Xmx` 设置最大分配内存
+3. `-XX:+PrintGCDetails`  打印GC垃圾回收信息
+4. `-XX:+HeapDumpOnOutOfMemoryError`  内存不足时dump
+
+### 分析示例：
+
+```java
+public class Solution1 {
+    byte[] array = new byte[1*1024*1024];
+    public static void main(String[] args) {
+        ArrayList<Solution1> list = new ArrayList<>();
+        int count = 0;
+        try{
+            while (true){
+                list.add(new Solution1());
+                count = count+1;
+            }
+        }catch (OutOfMemoryError error){
+            error.printStackTrace();
+        }
+    }
+}
+```
+
+上述代码示例用于反复产生数组以撑爆堆空间，需要搭配一下的命令参数：
+
+```shell
+-Xms1m -Xmx8m -XX:+HeapDumpOnOutOfMemoryError
+```
+
+然后可以在输出窗口看到如下信息：
+
+> java.lang.OutOfMemoryError: Java heap space
+> Dumping heap to java_pid24136.hprof ...
+> Heap dump file created [7725079 bytes in 0.010 secs]
+> java.lang.OutOfMemoryError: Java heap space
+> 	at Solution1.<init>(Solution1.java:4)
+> 	at Solution1.main(Solution1.java:10)
+>
+> Process finished with exit code 0
+
+在文件管理系统中找到如下文件`java_pid24136.hprof`，双击可以用`jprofiler`软件打开，如图
+
+![image-20200918155900165](https://user-images.githubusercontent.com/17522733/93606386-44b96e80-f9c8-11ea-8174-495e05272efd.png)
+
+可以看到“大对象”中有一个ArrayList很明显很大，点进去`Heap Walker --> Thread Dump`中可以发现有具体的代码错误提示：
+
+![image-20200918160011353](https://user-images.githubusercontent.com/17522733/93606358-3a977000-f9c8-11ea-85e3-eb46c854042b.png)
+
+通过这种方法便可以进行分析了。
+
+---
 
 ## GC常用算法
 
