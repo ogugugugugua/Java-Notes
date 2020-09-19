@@ -4,7 +4,7 @@
 
 更准确说是“**Java线程内存模型**”。其与CPU缓存模型类似，是标准化的，屏蔽了底层不同计算机的区别。
 
-![image-20200918172519035](C:\Users\XIE Yulin\AppData\Roaming\Typora\typora-user-images\image-20200918172519035.png)
+![image-20200918172519035](https://user-images.githubusercontent.com/17522733/93670105-e14b4180-fa98-11ea-9e21-00a8731f01c6.png)
 
 这里牵涉到一个可见性问题，每一个线程都会在主内存中获取一个所需内容的副本，用于自己线程。那么不同的线程之间就会可能出现各自工作内存中同一对象的值不一致问题。
 
@@ -50,6 +50,7 @@ public static volatile boolean flag = false;
 此时的控制台输出就会和预想的一样：
 
 > Waiting
+>
 > End waiting....
 
 ## JMM数据原子操作
@@ -65,8 +66,10 @@ public static volatile boolean flag = false;
 |  lock（锁定）  |      将主内存变量加锁，标识为线程独占状态      |
 | unlock（解锁） | 将主内存变量解锁，解锁后其他线程可以锁定该变量 |
 
+![未命名文件 (5)](https://user-images.githubusercontent.com/17522733/93671584-79025d00-faa4-11ea-91cf-2d876b2bebd9.png)
+
 ## JMM缓存不一致问题
 
-**总线加锁（性能太低，已弃用）**：CPU从主内存读取数据到告诉缓存，会在总线对这个数据加锁，直到用完释放锁之后其他CPU才能访问该数据。
+**总线加锁（性能太低，已弃用）**：CPU从主内存读取数据到告诉缓存，会在总线对这个数据加锁，直到用完释放锁之后其他CPU才能访问该数据。本质上已经把并行操作变成了串行操作。
 
 **MESI缓存一致性协议**：多个CPU从主内存读取同一个数据到各自的高速缓存，当其中某个CPU修改了缓存里的数据，该数据会马上同步回主内存，其他CPU通过总线嗅探机制可以感知到数据的变化从而将自己缓存里的数据失效。
