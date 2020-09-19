@@ -1,0 +1,72 @@
+# JMM
+
+## Java内存模型。
+
+更准确说是“**Java线程内存模型**”。其与CPU缓存模型类似，是标准化的，屏蔽了底层不同计算机的区别。
+
+![image-20200918172519035](C:\Users\XIE Yulin\AppData\Roaming\Typora\typora-user-images\image-20200918172519035.png)
+
+这里牵涉到一个可见性问题，每一个线程都会在主内存中获取一个所需内容的副本，用于自己线程。那么不同的线程之间就会可能出现各自工作内存中同一对象的值不一致问题。
+
+### 我们可以对这个现象进行一个模拟：
+
+```java
+public class Solution1 {
+    public static boolean flag = false;
+    public static void main(String[] args) throws InterruptedException {
+        new Thread(new Runnable() {							//线程A
+            @Override
+            public void run() {
+                System.out.println("Waiting");
+                while (!flag){}
+                System.out.println("End waiting....");
+            }
+        }).start();
+
+        Thread.sleep(2000);								    //确保线程A已经启动
+
+        new Thread(new Runnable() {							//线程B
+            @Override
+            public void run() {
+                flag = true;
+            }
+        }).start();
+    }
+}
+```
+
+而在控制台处的输出：
+
+> Waiting
+
+可见在线程A中的while循环并没有停止，尽管flag的值在表面上已经被线程B修改成了true。
+
+因此需要在flag前面加上**volatile**修饰，表示该共享变量在多个线程的工作内存之间的可见性：
+
+```java
+public static volatile boolean flag = false;
+```
+
+此时的控制台输出就会和预想的一样：
+
+> Waiting
+> End waiting....
+
+## JMM数据原子操作
+
+|    操作类型    |                      解析                      |
+| :------------: | :--------------------------------------------: |
+|  read（读取）  |                从主内存读取数据                |
+|  load（载入）  |        将主内存读取到的数据写入工作内存        |
+|  use（使用）   |            从工作内存读取数据来计算            |
+| assign（赋值） |        将计算好的值重新赋值到工作内存中        |
+| store（存储）  |            将工作内存数据写入主内存            |
+| write（写入）  |    将store过去的变量值赋值给主内存中的变量     |
+|  lock（锁定）  |      将主内存变量加锁，标识为线程独占状态      |
+| unlock（解锁） | 将主内存变量解锁，解锁后其他线程可以锁定该变量 |
+
+## JMM缓存不一致问题
+
+**总线加锁（性能太低，已弃用）**：CPU从主内存读取数据到告诉缓存，会在总线对这个数据加锁，直到用完释放锁之后其他CPU才能访问该数据。
+
+**MESI缓存一致性协议**：多个CPU从主内存读取同一个数据到各自的高速缓存，当其中某个CPU修改了缓存里的数据，该数据会马上同步回主内存，其他CPU通过总线嗅探机制可以感知到数据的变化从而将自己缓存里的数据失效。

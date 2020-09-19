@@ -253,4 +253,9 @@ public class Solution1 {
 
 Java Memory Model
 
-用于定义数据读写的规则。
+用于定义数据读写的规则。https://github.com/ogugugugugua/Java-Notes/blob/master/note/JMM.md
+
+
+
+---
+

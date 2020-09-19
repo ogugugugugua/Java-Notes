@@ -517,6 +517,45 @@ We can avoid the problems that might come along with the previous codes by re-ch
 ![2600](https://user-images.githubusercontent.com/17522733/68603487-a0fa5a80-04a8-11ea-873f-9b7fc2e450bf.png)
 </center>
 
+JDK5之后提供了线程池相关API： ExecutorService 和 Executors
+
+1. ExecutorService： 真正的线程池接口。常见子类ThreadPoolExecutor
+   1. void execute(Runnable command)：执行任务/命令，没有返回值，一般用来执行Runnable
+   2. <T> Future<T> submit(Callable<T> task)：执行任务，有返回值，一般用来执行Callable
+   3. void shutdown() ：关闭线程池
+2. Executors：工具类、线程池的工具类，用于创建并返回不同类型的线程池。
+
+---
+
+使用实例：
+
+```java
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class Solution1 {
+    public static void main(String[] args) throws InterruptedException {
+        ExecutorService service = Executors.newFixedThreadPool(10);
+
+        service.execute(new MyThread());
+        service.execute(new MyThread());
+        service.execute(new MyThread());
+
+        service.shutdown();
+
+    }
+}
+class MyThread implements Runnable{
+
+    @Override
+    public void run() {
+        System.out.println(Thread.currentThread().getName());
+    }
+}
+```
+
+
+
 
 
 
@@ -563,7 +602,6 @@ public class test{
 程序在执行过程中，如果出现异常，在默认情况下锁会被释放。
 因此在并发处理的过程中，对于异常处理需要更加的小心，否则可能会发生不一致的情况。
 e.g. 在一个web app处理过程中，多个servlet线程共同访问同一个资源，如果其中一个线程没有合理处理异常，抛出了异常，那么其他线程就会进入同步代码区，有可能访问到处理了一半的不正常数据。
-
 
 volatile使一个变量在多个线程之间可见。
 作用：当一个线程使得该变量的值发生变化时，会给其他的线程发出通知，告知该变量的值已经被修改，强制其他线程都去堆内存重新获取新的值放到自己线程的缓冲区里。
@@ -642,3 +680,59 @@ wait会释放锁，notify不会释放锁。
 
 
 还需要加上一个问题的几个对比解法
+
+----
+
+## 总结：
+
+关于线程的创建及使用：
+
+```java 
+import java.util.concurrent.*;
+
+public class Solution1 {
+    public static void main(String[] args) throws InterruptedException {
+        //1
+        new MyThread1().start();
+
+        //2
+        new Thread(new MyThread2()).start();
+
+        //3
+        FutureTask<Integer> futureTask = new FutureTask<Integer>(new MyThread3());
+        new Thread(futureTask).start();
+        try {
+            Integer integer = futureTask.get();
+            System.out.println(integer);
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+    }
+}
+
+class MyThread1 extends Thread{
+    @Override
+    public void run() {
+        System.out.println("MyThread1");
+    }
+}
+
+class MyThread2 implements Runnable{
+
+    @Override
+    public void run() {
+        System.out.println("MyThread2");
+    }
+}
+
+class MyThread3 implements Callable<Integer>{
+
+    @Override
+    public Integer call() throws Exception {
+        System.out.println("MyThread3");
+        return 2333;
+    }
+}
+```
+
