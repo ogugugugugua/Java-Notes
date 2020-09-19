@@ -125,7 +125,11 @@ Method area
 
 ![image-20200915211525421](https://user-images.githubusercontent.com/17522733/93254468-ab584580-f798-11ea-957d-e6ea90e0d372.png)
 
-**画出在内存中一个对象实例化的过程。**
+---
+
+## **画出在内存中一个对象实例化的过程。**
+
+![在内存中一个对象实例化的过程](https://user-images.githubusercontent.com/17522733/93689586-4e2dfe00-fad0-11ea-8b7d-b8985db62f0c.png)
 
 ---
 
