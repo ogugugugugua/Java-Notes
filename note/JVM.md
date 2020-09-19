@@ -220,13 +220,13 @@ public class Solution1 {
 
    缺点：两次扫描浪费时间。会产生内存碎片。
 
-   ![image-20200919222636995](C:\Users\XIE Yulin\AppData\Roaming\Typora\typora-user-images\image-20200919222636995.png)
+   <img src="https://user-images.githubusercontent.com/17522733/93689192-6a2fa080-facc-11ea-9c55-1db938232089.png" alt="image-20200919222636995" style="zoom:80%;" />
 
 2. ### 标记压缩法  Mark-Compact
 
    （1）扫描，对活着的对象进行一个标记。（2）扫描，对没有标记的对象进行清除。（3）扫描，将存活的对象移到一侧
 
-   ![image-20200919222840076](C:\Users\XIE Yulin\AppData\Roaming\Typora\typora-user-images\image-20200919222840076.png)
+   <img src="https://user-images.githubusercontent.com/17522733/93689185-5e43de80-facc-11ea-90dc-88e7c1c0be3b.png" alt="image-20200919222840076" style="zoom:80%;" />
 
 3. ### 复制算法  Copying
 
@@ -240,13 +240,13 @@ public class Solution1 {
 
    根据优缺点**总结**：复制算法最佳使用场景是对象存活度较低的情况，也就是在新生区。
 
-   ![image-20200919222729468](C:\Users\XIE Yulin\AppData\Roaming\Typora\typora-user-images\image-20200919222729468.png)
+   <img src="https://user-images.githubusercontent.com/17522733/93689180-51bf8600-facc-11ea-9c7d-eb61f31ec19a.png" alt="image-20200919222729468" style="zoom:80%;" />
 
 4. ### 引用计数法  Reference-Count
 
    将对象的使用次数进行标记计数，没用过的就清除。而且这种方法**不能解决循环引用的问题**，比如说如下的这种情况，其实他们都是垃圾，但是由于循环引用的存在，所以无法被回收。
    
-   ![GC引用计数法无法解决之循环引用](https://user-images.githubusercontent.com/17522733/93688369-a1e71a00-fac5-11ea-863e-d4e89e569666.png)
+   <img src="https://user-images.githubusercontent.com/17522733/93688369-a1e71a00-fac5-11ea-863e-d4e89e569666.png" alt="GC引用计数法无法解决之循环引用" style="zoom: 50%;" />
 
 ---
 
