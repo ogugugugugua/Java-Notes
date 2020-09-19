@@ -212,7 +212,7 @@ public class Solution1 {
 
 ## GC常用算法
 
-1. ### 标记清除法
+1. ### 标记清除法  Mark-Sweep
 
    （1）扫描，对活着的对象进行一个标记。（2）扫描，对没有标记的对象进行清除。
 
@@ -220,15 +220,19 @@ public class Solution1 {
 
    缺点：两次扫描浪费时间。会产生内存碎片。
 
-2. ### 标记整理法
+   ![image-20200919222636995](C:\Users\XIE Yulin\AppData\Roaming\Typora\typora-user-images\image-20200919222636995.png)
+
+2. ### 标记压缩法  Mark-Compact
 
    （1）扫描，对活着的对象进行一个标记。（2）扫描，对没有标记的对象进行清除。（3）扫描，将存活的对象移到一侧
 
-3. ### 复制算法
+   ![image-20200919222840076](C:\Users\XIE Yulin\AppData\Roaming\Typora\typora-user-images\image-20200919222840076.png)
+
+3. ### 复制算法  Copying
 
    主要用于年轻代。对于两个幸存区from和to，谁空谁是to。
 
-   当一个对象经历了15次minor GC都还存活的时候，就会进入老年区。使用命令`-XX:MaxTenuringThreshold=5`可以修改进入老年区前能抗多少次minor GC。
+   当一个对象经历了15次minor GC都还存活的时候，就会进入老年区。使用命令`-XX:MaxTenuringThreshold=5`可以修改进入老年区前能抗多少次minor GC。 
 
    **优点**：没有内存的碎片
 
@@ -236,9 +240,21 @@ public class Solution1 {
 
    根据优缺点**总结**：复制算法最佳使用场景是对象存活度较低的情况，也就是在新生区。
 
-4. ### 引用计数法
+   ![image-20200919222729468](C:\Users\XIE Yulin\AppData\Roaming\Typora\typora-user-images\image-20200919222729468.png)
 
-   将对象的使用次数进行标记计数，没用过的就清除。
+4. ### 引用计数法  Reference-Count
+
+   将对象的使用次数进行标记计数，没用过的就清除。而且这种方法**不能解决循环引用的问题**，比如说如下的这种情况，其实他们都是垃圾，但是由于循环引用的存在，所以无法被回收。
+   
+   ![GC引用计数法无法解决之循环引用](https://user-images.githubusercontent.com/17522733/93688369-a1e71a00-fac5-11ea-863e-d4e89e569666.png)
+
+---
+
+## Root Searching
+
+![Root Searching](https://user-images.githubusercontent.com/17522733/93688512-a4963f00-fac6-11ea-8359-feb0f15357cc.png)
+
+---
 
 ### 总结
 
@@ -248,6 +264,10 @@ public class Solution1 {
 - **适用情况：**
   - 年轻代：对象存活率低，适用复制算法
   - 老年代：区域大，存活率高，当内存碎片不过多时适用标记清除算法，当碎片到达一定量时可以搭配使用标记整理算法。（分代收集算法）
+
+![垃圾回收器 (2)](https://user-images.githubusercontent.com/17522733/93689127-e5dd1d80-facb-11ea-9135-a6748d6c7220.png)
+
+---
 
 ## JMM
 
