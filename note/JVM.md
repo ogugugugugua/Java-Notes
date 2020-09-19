@@ -129,7 +129,7 @@ Method area
 
 ## **画出在内存中一个对象实例化的过程。**
 
-![在内存中一个对象实例化的过程](https://user-images.githubusercontent.com/17522733/93689586-4e2dfe00-fad0-11ea-8b7d-b8985db62f0c.png)
+![在内存中一个对象实例化的过程 (1)](https://user-images.githubusercontent.com/17522733/93689633-ae24a480-fad0-11ea-9295-9a477beac997.png)
 
 ---
 
