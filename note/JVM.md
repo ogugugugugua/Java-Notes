@@ -30,6 +30,10 @@
 
 ![未命名文件 (3)](https://user-images.githubusercontent.com/17522733/93598189-a247be00-f9bc-11ea-8819-9a6816ceb2ef.png)
 
+需要注意的是：每个JVM线程拥有一个私有的Java虚拟机栈，创建线程的时候栈也被创建：
+
+![多线程情况下每个线程拥有一个栈](https://user-images.githubusercontent.com/17522733/93720793-8e9e8200-fb8b-11ea-8419-77c2652937c8.png)
+
 ---
 
 ## 类加载器

@@ -8,8 +8,46 @@ Yulin XIE
 
 
 <center>
+## 线程状态转移图:
+
+![多线程状态转移图](https://user-images.githubusercontent.com/17522733/93720203-db805980-fb87-11ea-9fa7-b66afa185098.png)
+
+## 常用的中断线程的方法:
+
+(1) 对目标线程调用`interrupt()`方法可以请求中断一个线程，目标线程通过检测`isInterrupted()`标志获取自身是否已中断。如果目标线程处于等待状态，该线程会捕获到`InterruptedException`；
+
+目标线程检测到`isInterrupted()`为`true`或者捕获了`InterruptedException`都应该立刻结束自身线程；
+
+(2) 设置标志位。我们通常会用一个`running`标志位来标识线程是否应该继续运行，在外部线程中，通过把`HelloThread.running`置为`false`，就可以让线程结束：
+
+```java
+public class Main {
+    public static void main(String[] args)  throws InterruptedException {
+        HelloThread t = new HelloThread();
+        t.start();
+        Thread.sleep(1);
+        t.running = false; // 标志位置为false
+    }
+}
+
+class HelloThread extends Thread {
+    public volatile boolean running = true;
+    public void run() {
+        int n = 0;
+        while (running) {
+            n ++;
+            System.out.println(n + " hello!");
+        }
+        System.out.println("end!");
+    }
+}
+
+```
+
+
 
 ## Course1
+
 </center>
 
 #### 1. Construction of Thread
@@ -132,7 +170,11 @@ thread8.setPriority(thread.MIN_PRIORITY);
 
 >join:当某个线程拥有cpu资源时，它决定把资源让给另一个特定的线程;&emsp;yield:当某个线程获得cpu时，它让出这个机会，给与它优先级相同或者更高的线程
 
-- setDaemon
+- setDaemon 设置守护线程
+
+有一类型的线程，其目的就是无限循环，例如一个定时触发任务的线程或者日志记录线程。如果其不结束，JVM进程就无法结束，所以需要使用守护线程，将该目标线程设置为守护线程。JVM在退出时，不必关心守护线程是否结束。
+
+**注意**：守护线程不能持有任何需要关闭的资源，例如打开文件等，因为虚拟机退出时，守护线程没有任何机会来关闭文件，这会导致数据丢失！
 
 When all threads in a processor are Daemon, the processor ends. Daemon threads are usually used to log or do performance statistic calculation.
 ```java
@@ -153,7 +195,7 @@ Thread thread7 = new Thread(){
 thread7.setDaemon(true);
 thread7.start();
 ```
-Nothing will happen for the codes aboved because there is no threads that really performans task besides the main thread and therefore the processor will end when the main thread is done, and the Daemon thread exists as nothing.
+Nothing will happen for the codes above because there is no threads that really performance task besides the main thread and therefore the processor will end when the main thread is done, and the Daemon thread exists as nothing.
 
 #### 3. synchronized
 如果一个类，其方法都是有synchronized修饰的，那么该类就叫做线程安全的类
