@@ -1,13 +1,9 @@
 <center>
 
 # Multi Thread
-</center>
-<center>
+
 Yulin XIE
-</center>
 
-
-<center>
 ## 线程状态转移图:
 
 ![多线程状态转移图](https://user-images.githubusercontent.com/17522733/93720203-db805980-fb87-11ea-9fa7-b66afa185098.png)
@@ -176,7 +172,12 @@ thread8.setPriority(thread.MIN_PRIORITY);
 
 **注意**：守护线程不能持有任何需要关闭的资源，例如打开文件等，因为虚拟机退出时，守护线程没有任何机会来关闭文件，这会导致数据丢失！
 
+> 实际的意思是把一个线程标记为“守护线程”，就是当他是一个“后台线程”or“内部线程”，类似于管理内存垃圾回收的线程一样。
+>
+> 只要正常线程执行结束了，我主线程才不管你是不是在垃圾回收还是做哪些后台操作，只要正常线程结束，我JVM就结束了。
+
 When all threads in a processor are Daemon, the processor ends. Daemon threads are usually used to log or do performance statistic calculation.
+
 ```java
 Thread thread7 = new Thread(){
     public void run(){
@@ -724,6 +725,136 @@ wait会释放锁，notify不会释放锁。
 还需要加上一个问题的几个对比解法
 
 ----
+
+## ReentrantLock & Condition 实现等待与通知
+
+Condition将Object的通信方法（wait,notify,notifyAll）分解成了不同的对象，以便于与任意的Lock实现组合使用。
+
+> 其中，Lock替代了synchronized，Condition替代了Object的通信方法。
+
+Condition的强大：它可以为多个线程间建立不同的Condition，使用synchronized/wait()只有一个阻塞队列，notifyAll会唤起所有阻塞队列下的线程。而使用Lock/Condition，可以实现多个阻塞队列，signalAll只会唤起某个阻塞队列下的线程。
+
+这里我们使用一个`ReentranLock`和`Condition`来实现一个`生产者/消费者模式`：
+
+![使用ReentrantLock和Condition 模拟消费者和生产者模式 (1)](https://user-images.githubusercontent.com/17522733/93831597-6ee28900-fc73-11ea-8df1-7b677b47cd07.png)
+
+```java
+//模拟生产和消费的对象
+class buffer{
+    Lock lock;
+    Condition notFull;
+    Condition notEmpty;
+    int maxSize;
+    List<Date> storage;
+    buffer(int size){
+        this.lock = new ReentrantLock();
+        this.notEmpty = lock.newCondition();
+        this.notFull = lock.newCondition();
+        this.maxSize = size;
+        this.storage = new LinkedList<>();
+    }
+
+    public void put(){
+        lock.lock();                    //作用相当于synchronized，保证了buffer对象操作的原子性
+        try {
+            if (storage.size() >= maxSize) {
+                System.out.println(Thread.currentThread().getName()+" :wait");
+                notFull.await();        //阻塞生产线程
+            }
+            storage.add(new Date());
+            System.out.println(Thread.currentThread().getName() + ": put:" + storage.size());
+            Thread.sleep(100);
+            notEmpty.signalAll();       //唤醒消费线程
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }finally {
+            lock.unlock();
+        }
+    }
+
+    public void take(){
+        lock.lock();                    //作用相当于synchronized，保证了buffer对象操作的原子性
+        try{
+            if (storage.size()==0){
+                System.out.println(Thread.currentThread().getName()+" :wait");
+                notEmpty.await();       //阻塞消费线程
+            }
+            Date date = ((LinkedList<Date>) storage).poll();
+            System.out.println(Thread.currentThread().getName() + ": take:" + storage.size());
+            Thread.sleep(100);
+            notFull.signalAll();        //唤醒生产线程
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }finally {
+            lock.unlock();
+        }
+    }
+}
+
+class producer implements Runnable{
+    buffer b;
+    producer(buffer buffer){
+        this.b = buffer;
+    }
+
+    @Override
+    public void run() {
+        while (true){
+            //所有执行了put方法的线程都有机会遇到notFull.await()这一行代码因而被阻塞
+            //也就是说这些producer线程都可能会被notFull这个Condition阻塞
+            //何时能被唤醒呢？当消费者线程执行了notFull.signalAll();这行代码的时候就可以啦
+            this.b.put();
+        }
+    }
+}
+
+class consumer implements Runnable{
+    buffer b;
+    consumer(buffer buffer){
+        this.b = buffer;
+    }
+
+    @Override
+    public void run() {
+        while (true){
+            //所有执行了take方法的线程都有可能遇到notEmpty.await()这一行代码因而被阻塞
+            //也就是说所有的consumer线程都有可能会被notEmpty这个Condition阻塞
+            //何时能被唤醒呢？当生产者线程执行了notEmpty.signalAll();这行代码的时候就可以啦
+            this.b.take();
+        }
+    }
+}
+
+public class useLockCondition {
+    public static void main(String[] args) {
+        buffer buffer = new buffer(5);
+        producer producer = new producer(buffer);
+        consumer consumer = new consumer(buffer);
+        for (int i = 0; i < 5; i++) {
+            new Thread(producer,"producer"+i).start();
+        }
+        for (int i = 0; i < 5; i++) {
+            new Thread(consumer,"consumer"+i).start();
+        }
+    }
+}
+```
+
+
+
+---
+
+## 多线程按顺序执行
+
+- 方法1: 使用单线程的线程池来实现
+- 方法2: 在主线程中使用join()
+- 方法3: 在线程中使用join方法
+- 方法4: 使用ReentrantLock搭配Condition实现等待和唤醒
+- 方法5: 使用CountDownLatch来实现类倒计时功能
+
+具体实现：https://github.com/ogugugugugua/Java-Notes/tree/master/code/multiThread/src/com/company/sequentialExecution
+
+---
 
 ## 总结：
 
