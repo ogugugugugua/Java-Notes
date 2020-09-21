@@ -2,8 +2,11 @@ package com.company.sequentialExecution;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Executors;
+
 
 public class method2 {
+
     public static void main(String[] args) {
         List<Thread> list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
