@@ -31,7 +31,7 @@ class printWithCondition extends Thread{
         try {
             Thread.sleep(100);
             lock.lock();
-            if (!preRun)                //若前序线程尚未跑完
+            if (!preRun)                //若前序线程尚未跑完  -->这里如果是while则好像不行
                 condition.await();      //当前线程先等着，等待被唤醒
             System.out.println("Thread --> " + this.num);
             run = true;                 //标记当前线程已跑完
@@ -66,7 +66,7 @@ public class method4 {
         for (int i = 0; i < 9; i++) {
             threadList.get(i).start();    //开启threadList里面的所有线程
         }
-
+        System.out.println("方法4：使用ReentrantLock搭配Condition实现等待和唤醒");
         Thread.sleep(10);           //确保第1-9线程都已被开启且处于等待状态，以防有些线程尚未处于等待，这样就会错过前序线程的唤醒通知，从而导致在中间某个线程停下来
         thread0.start();                  //可以开始第0个线程
     }

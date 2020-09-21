@@ -2,20 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53193a70-4fa7-4309-963f-e04d07b4cdc7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/company/sequentialExecution/method5.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/sequentialExecution/readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../CodingExercises/ChainList/01/out/production/01/yulin/main/ChainNode.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../CodingExercises/ChainList/01/out/production/01/yulin/test/TestAddNode.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../CodingExercises/ChainList/01/src/yulin/main/ChainNode.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../CodingExercises/ChainList/01/src/yulin/test/TestAddNode.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../leetcode/二分查找/src/Solution1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/二分查找/src/Solution1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../leetcode/设计LRU缓存结构/src/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/设计LRU缓存结构/src/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/sequentialExecution/method1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/sequentialExecution/method1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/sequentialExecution/method2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/sequentialExecution/method2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/sequentialExecution/method4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/sequentialExecution/method4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/sequentialExecution/print.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/sequentialExecution/print.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/company/sequentialExecution/printWithCondition.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/company/sequentialExecution/printWithCondition.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/sequentialExecution/method1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/sequentialExecution/method1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/sequentialExecution/method2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/sequentialExecution/method2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/sequentialExecution/method4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/sequentialExecution/method4.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../note/multiThread.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../note/multiThread.md" afterDir="false" />
     </list>
@@ -47,7 +41,7 @@
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573078928275" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Application.method5">
+  <component name="RunManager" selected="Application.method4">
     <configuration name="method1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.sequentialExecution.method1" />
       <module name="multiThread" />
@@ -122,8 +116,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.method5" />
         <item itemvalue="Application.method4" />
+        <item itemvalue="Application.method5" />
         <item itemvalue="Application.method3" />
         <item itemvalue="Application.method2" />
         <item itemvalue="Application.method1" />
@@ -152,7 +146,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1573070076860</updated>
-      <workItem from="1600677311488" duration="13471000" />
+      <workItem from="1600677311488" duration="14266000" />
     </task>
     <servers />
   </component>
@@ -181,26 +175,26 @@
       <screen x="1920" y="0" width="1440" height="900" />
     </state>
     <state x="2024" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1600706596815" />
-    <state width="1397" height="240" key="GridCell.Tab.0.bottom" timestamp="1600709779593">
+    <state width="1397" height="240" key="GridCell.Tab.0.bottom" timestamp="1600710687509">
       <screen x="1920" y="0" width="1440" height="900" />
     </state>
     <state width="1877" height="199" key="GridCell.Tab.0.bottom/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1600685202187" />
-    <state width="1397" height="240" key="GridCell.Tab.0.bottom/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1600709779593" />
-    <state width="1397" height="240" key="GridCell.Tab.0.center" timestamp="1600709779592">
+    <state width="1397" height="240" key="GridCell.Tab.0.bottom/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1600710687509" />
+    <state width="1397" height="240" key="GridCell.Tab.0.center" timestamp="1600710687509">
       <screen x="1920" y="0" width="1440" height="900" />
     </state>
     <state width="1877" height="199" key="GridCell.Tab.0.center/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1600685202187" />
-    <state width="1397" height="240" key="GridCell.Tab.0.center/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1600709779592" />
-    <state width="1397" height="240" key="GridCell.Tab.0.left" timestamp="1600709779592">
+    <state width="1397" height="240" key="GridCell.Tab.0.center/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1600710687509" />
+    <state width="1397" height="240" key="GridCell.Tab.0.left" timestamp="1600710687508">
       <screen x="1920" y="0" width="1440" height="900" />
     </state>
     <state width="1877" height="199" key="GridCell.Tab.0.left/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1600685202187" />
-    <state width="1397" height="240" key="GridCell.Tab.0.left/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1600709779592" />
-    <state width="1397" height="240" key="GridCell.Tab.0.right" timestamp="1600709779593">
+    <state width="1397" height="240" key="GridCell.Tab.0.left/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1600710687508" />
+    <state width="1397" height="240" key="GridCell.Tab.0.right" timestamp="1600710687509">
       <screen x="1920" y="0" width="1440" height="900" />
     </state>
     <state width="1877" height="199" key="GridCell.Tab.0.right/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1600685202187" />
-    <state width="1397" height="240" key="GridCell.Tab.0.right/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1600709779593" />
+    <state width="1397" height="240" key="GridCell.Tab.0.right/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1600710687509" />
     <state x="2303" y="190" width="672" height="678" key="search.everywhere.popup" timestamp="1600689427385">
       <screen x="1920" y="0" width="1440" height="900" />
     </state>
