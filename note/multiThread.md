@@ -198,7 +198,7 @@ thread7.start();
 ```
 Nothing will happen for the codes above because there is no threads that really performance task besides the main thread and therefore the processor will end when the main thread is done, and the Daemon thread exists as nothing.
 
-#### 3. synchronized
+##  synchronized
 如果一个类，其方法都是有synchronized修饰的，那么该类就叫做线程安全的类
 
 同一时间，只有一个线程能够进入 这种类的一个实例 的去修改数据，进而保证了这个实例中的数据的安全(不会同时被多线程修改而变成脏数据)
@@ -313,9 +313,70 @@ We will have results like this:
 
 That is the power of `synchronized` !!!
 
+---
 
+使用synchronized的时候，锁住的是哪个对象非常重要。比较好的方法是把synchronized逻辑封装起来，例如上面的
 
-#### 4. Safety of threads
+```java
+class object{
+    public int number = 10000;
+    public synchronized void add(int n){ //用synchronized修饰的方法就是同步方法，它表示整个方法都必须用this实例加锁。
+        this.number+=n;
+    }
+    public synchronized void subtract(int n){
+        this.number-=n;
+    }
+}
+```
+
+也可以写成这样（等价）：
+
+```java
+class object{
+    public int number = 10000;
+    public void add(int n){
+        synchronized(this){
+            this.number+=n;
+        }
+       
+    }
+    public void subtract(int n){
+        synchronized(this){
+            this.number-=n;
+        }
+    }
+}
+```
+
+这样一来，线程调用`add()`、`dec()`方法时，它不必关心同步逻辑，因为`synchronized`代码块在`add()`、`dec()`方法内部。并且，我们注意到，`synchronized`锁住的对象是`this`，即当前实例，这又使得创建多个`Counter`实例的时候，它们之间互不影响，可以并发执行。
+
+### 对static方法加锁：
+
+static方法是没有this实例的，因为static方法是针对类而不是实例。所以对static方法添加synchronized，锁住的是该类的Class实例，即
+
+```java
+public class counter{
+    public synchronized static void test(int n){
+        //TODO
+    }
+}
+```
+
+等价于：
+
+```java 
+public class counter{
+    public static void test(int n){
+        synchronized(counter.Class){
+            //TODO
+        }
+    }
+}
+```
+
+---
+
+## 4.线程安全性 Safety of threads
 - `HashTable` VS `HashMap`
 >如果你不需要线程安全，那么使用HashMap，如果需要线程安全，那么使用ConcurrentHashMap。HashTable已经被淘汰了，不要在新的代码中再使用它。
 
@@ -330,8 +391,14 @@ StringBuilder 是非线程安全的;&emsp;
 - 改变方法：
 > 借助Collections.synchronizedList，可以把ArrayList转换为线程安全的List。与此类似的，还有HashSet,LinkedList,HashMap等等非线程安全的类，都通过工具类Collections转换为线程安全的
 
+## 5. 死锁DeadLock
 
-#### 5. DeadLock
+JVM允许同一个线程重复获取同一个锁，这种叫**可重入锁**。正是由于java的线程锁是可重入锁，所以当获取锁的时候需要记录这是第几次获取，每获取一次锁记录+1，每退出synchronized块记录-1，减到0的时候才是真正的释放锁。
+
+### 如何避免死锁？
+
+**答案：线程获取锁的顺序要一致！即严格按照先获取lockA，再获取lockB的顺序。**
+
 ```java
 class testObject{
     String name;
@@ -405,7 +472,7 @@ Noted that in the codes aboved, we need to put the second synchronized object pa
 Otherwise, we would lose the possession of the first object and thus there will not be any DeadLock anymore.
 
 
-#### 6. Interaction between threads
+## 6. 线程交互Interaction between threads
 `wait`和`notify`都不是线程的方法，而是对象的方法。
 ```java
 class numberObject{
@@ -480,7 +547,7 @@ public class WaitNotify {
 
 - notifyAll() 的意思是，通知所有的等待在这个同步对象上的线程，你们可以苏醒过来了，有机会重新占用当前对象了。
 
-#### 7. One More Thing About `Wait` And `Notify`
+### 7. One More Thing About `Wait` And `Notify`
 For functions like this:
 ```java
 public synchronized T pull(){
@@ -542,7 +609,7 @@ public synchronized T pull(){
 ```
 We can avoid the problems that might come along with the previous codes by re-checking the situation of `stack.size()` every time a `push`/`pull` is awaked because we need to satisfy the constraint of `stack.size()` in order to proceed.
 
-#### 8. Thread Pool
+## 8. 线程池Thread Pool
 `ThreadPool` 包含了内部类`TaskConsumeThread`，也包含了存放任务的列表`Tasks`
 
 `TaskConsumeThread`继承了`Thread`
