@@ -37,5 +37,4 @@ public class MySolution {
         quickSort(a);
         System.out.println(Arrays.toString(a));
     }
-
 }

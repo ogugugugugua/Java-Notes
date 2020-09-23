@@ -18,6 +18,7 @@
       <module fileurl="file://$PROJECT_DIR$/二分查找/二分查找.iml" filepath="$PROJECT_DIR$/二分查找/二分查找.iml" />
       <module fileurl="file://$PROJECT_DIR$/反转列表/反转列表.iml" filepath="$PROJECT_DIR$/反转列表/反转列表.iml" />
       <module fileurl="file://$PROJECT_DIR$/合并有序链表/合并有序链表.iml" filepath="$PROJECT_DIR$/合并有序链表/合并有序链表.iml" />
+      <module fileurl="file://$PROJECT_DIR$/寻找第K大/寻找第K大.iml" filepath="$PROJECT_DIR$/寻找第K大/寻找第K大.iml" />
       <module fileurl="file://$PROJECT_DIR$/设计LRU缓存结构/设计LRU缓存结构.iml" filepath="$PROJECT_DIR$/设计LRU缓存结构/设计LRU缓存结构.iml" />
     </modules>
   </component>
