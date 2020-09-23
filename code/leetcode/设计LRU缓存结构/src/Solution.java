@@ -53,7 +53,7 @@ public class Solution {
      * @return
      */
     public int[] LRU2 (int[][] operators, int k) {
-        LinkedHashMap<Integer, Integer> map = new LinkedHashMap<>(k);
+        LinkedHashMap<Integer, Integer> map = new LinkedHashMap<>(k); //运用该数据结构，有序存储
         List<Integer> result = new ArrayList<>();
         for (int i = 0; i < operators.length; i++) {
             if (operators[i][0]==1){
