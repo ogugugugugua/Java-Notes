@@ -16,6 +16,8 @@
       <module fileurl="file://$PROJECT_DIR$/TwoSum/TwoSum.iml" filepath="$PROJECT_DIR$/TwoSum/TwoSum.iml" />
       <module fileurl="file://$PROJECT_DIR$/leetcode.iml" filepath="$PROJECT_DIR$/leetcode.iml" />
       <module fileurl="file://$PROJECT_DIR$/二分查找/二分查找.iml" filepath="$PROJECT_DIR$/二分查找/二分查找.iml" />
+      <module fileurl="file://$PROJECT_DIR$/二叉树先序_中序_后序遍历/二叉树先序_中序_后序遍历.iml" filepath="$PROJECT_DIR$/二叉树先序_中序_后序遍历/二叉树先序_中序_后序遍历.iml" />
+      <module fileurl="file://$PROJECT_DIR$/删除链表的倒数第n个节点/删除链表的倒数第n个节点.iml" filepath="$PROJECT_DIR$/删除链表的倒数第n个节点/删除链表的倒数第n个节点.iml" />
       <module fileurl="file://$PROJECT_DIR$/反转列表/反转列表.iml" filepath="$PROJECT_DIR$/反转列表/反转列表.iml" />
       <module fileurl="file://$PROJECT_DIR$/合并有序链表/合并有序链表.iml" filepath="$PROJECT_DIR$/合并有序链表/合并有序链表.iml" />
       <module fileurl="file://$PROJECT_DIR$/寻找第K大/寻找第K大.iml" filepath="$PROJECT_DIR$/寻找第K大/寻找第K大.iml" />
