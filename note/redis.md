@@ -413,7 +413,7 @@ public class RedisAutoConfiguration {
 
 该类里面的数据成员有：
 
-![image-20200501200023998](C:\javaNotes\pics\image-20200501200023998.png)
+![image-20200501200023998](https://user-images.githubusercontent.com/17522733/94205535-caa35100-fec3-11ea-9edd-460f20f39b05.png)
 
 从上面的注释可以知道，我们在`applicationContext.properties`中进行**配置**的时候，前缀是`spring.redis`，比如：
 
@@ -441,7 +441,7 @@ class RedisSpringbootApplicationTests {
 
 在springboot的测试中我们得到了正确的值，这里的opsForValue用于String类型，还有其他的比如↓，对应于Redis的那六大类型：
 
-![image-20200501202044908](C:\javaNotes\pics\image-20200501202044908.png)
+![image-20200501202044908](https://user-images.githubusercontent.com/17522733/94205553-d42cb900-fec3-11ea-9532-14a76ba6077a.png)
 
 除了上面对应各个类型的操作外，一些最基本的操作还可以直接通过RedisTemplate来操作。
 
@@ -486,7 +486,7 @@ void test(){
 
 就会发现报错：序列化错误，无法序列化
 
-![image-20200501204458137](C:\javaNotes\pics\image-20200501204458137.png)
+![image-20200501204458137](https://user-images.githubusercontent.com/17522733/94205572-dbec5d80-fec3-11ea-9a12-6c7365968322.png)
 
 （1）而在真实的开发中经常会先序列化成`json`对象，就可以成功：
 
@@ -1391,9 +1391,9 @@ void testUtils(){
 
 在指定的时间间隔内将内存中的数据写入硬盘中，恢复时从硬盘中读取快照到内存。
 
-![image-20200502113505421](C:\javaNotes\pics\image-20200502113505421.png)
+![image-20200502113505421](https://user-images.githubusercontent.com/17522733/94205611-ee669700-fec3-11ea-8351-4e6658e8de0e.png)
 
-![image-20200502113615873](C:\javaNotes\pics\image-20200502113615873.png)
+![image-20200502113615873](https://user-images.githubusercontent.com/17522733/94205626-f4f50e80-fec3-11ea-9617-3c16341cdfde.png)
 
 触发产生`dump.rdb`文件的机制：
 
@@ -1448,7 +1448,7 @@ auto-aof-rewrite-min-size 64mb  #文件大小为64mb时搞一个新的
 
 重写机制如图：
 
-![Redis两种持久化机制RDB和AOF详解（面试常问，工作常用）](C:\javaNotes\pics\58d5f8e0db8e92f4feccd2ac8c84b32b.jpeg)
+![58d5f8e0db8e92f4feccd2ac8c84b32b](https://user-images.githubusercontent.com/17522733/94205648-fd4d4980-fec3-11ea-9e82-a6197298fd5f.jpeg)
 
 特点：
 
@@ -1461,7 +1461,7 @@ auto-aof-rewrite-min-size 64mb  #文件大小为64mb时搞一个新的
 
 这里的发布订阅PUB/SUB是一种消息通信模式。比如微信公众号，微博，关注系统。
 
-![image-20200502152739419](C:\javaNotes\pics\image-20200502152739419.png)
+![image-20200502152739419](https://user-images.githubusercontent.com/17522733/94205658-050cee00-fec4-11ea-98f6-3864bf71e404.png)
 
 ### 订阅端：
 
@@ -1502,7 +1502,7 @@ Reading messages... (press Ctrl-C to quit)
 
 - [x] **默认情况下每台Redis服务器都是主节点！** 一般情况下只需要配置从机即可。
 
-![image-20200502164030484](C:\javaNotes\pics\image-20200502164030484.png)
+![image-20200502164030484](https://user-images.githubusercontent.com/17522733/94205675-0c33fc00-fec4-11ea-9692-e90811a7e42c.png)
 
 ### 主从复制作用：
 
@@ -1541,7 +1541,7 @@ repl_backlog_histlen:0
 
 然后在三个SSH窗口分别开启三个Redis服务，可以得到这样的效果：
 
-![image-20200502170101037](C:\javaNotes\pics\image-20200502170101037.png)
+![image-20200502170101037](https://user-images.githubusercontent.com/17522733/94205687-1229dd00-fec4-11ea-97e6-55c8483e39d4.png)
 
 分别开启客户端`redis-cli -p 6379/6380/6381`后，我们在这里将6379作为主机，6380和6381作为从机。因此在从机的窗口处配置：
 
@@ -1655,7 +1655,7 @@ SLAVEOF NO ONE
 
 哨兵是一个独立的进程，原理是**哨兵通过发送命令，等待Redis服务器响应，从而监控运行的多个Redis实例**。下图是一个多哨兵模式示例，以避免单个哨兵失效的问题：
 
-![img](C:\javaNotes\pics\1)
+![1-](https://user-images.githubusercontent.com/17522733/94205861-6f259300-fec4-11ea-90d6-e897e0209ac7.png)
 
 **配置**`sentinel.conf`：
 
@@ -1765,7 +1765,7 @@ port 26379
 
 一般的业务缓存过程：
 
-![缓存流程图](C:\javaNotes\pics\2)
+![2](https://user-images.githubusercontent.com/17522733/94205889-7cdb1880-fec4-11ea-8027-a43556eff8c0.png)
 
 ### 缓存穿透（查不到）：
 
