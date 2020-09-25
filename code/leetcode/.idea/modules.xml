@@ -15,6 +15,7 @@
       <module fileurl="file://$PROJECT_DIR$/TencentExercise/TencentExercise.iml" filepath="$PROJECT_DIR$/TencentExercise/TencentExercise.iml" />
       <module fileurl="file://$PROJECT_DIR$/TwoSum/TwoSum.iml" filepath="$PROJECT_DIR$/TwoSum/TwoSum.iml" />
       <module fileurl="file://$PROJECT_DIR$/leetcode.iml" filepath="$PROJECT_DIR$/leetcode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/两个链表生成相加链表/两个链表生成相加链表.iml" filepath="$PROJECT_DIR$/两个链表生成相加链表/两个链表生成相加链表.iml" />
       <module fileurl="file://$PROJECT_DIR$/二分查找/二分查找.iml" filepath="$PROJECT_DIR$/二分查找/二分查找.iml" />
       <module fileurl="file://$PROJECT_DIR$/二叉树先序_中序_后序遍历/二叉树先序_中序_后序遍历.iml" filepath="$PROJECT_DIR$/二叉树先序_中序_后序遍历/二叉树先序_中序_后序遍历.iml" />
       <module fileurl="file://$PROJECT_DIR$/删除链表的倒数第n个节点/删除链表的倒数第n个节点.iml" filepath="$PROJECT_DIR$/删除链表的倒数第n个节点/删除链表的倒数第n个节点.iml" />
@@ -24,6 +25,7 @@
       <module fileurl="file://$PROJECT_DIR$/找到字符串的最长无重复字符子串/找到字符串的最长无重复字符子串.iml" filepath="$PROJECT_DIR$/找到字符串的最长无重复字符子串/找到字符串的最长无重复字符子串.iml" />
       <module fileurl="file://$PROJECT_DIR$/设计LRU缓存结构/设计LRU缓存结构.iml" filepath="$PROJECT_DIR$/设计LRU缓存结构/设计LRU缓存结构.iml" />
       <module fileurl="file://$PROJECT_DIR$/链表中环的入口节点/链表中环的入口节点.iml" filepath="$PROJECT_DIR$/链表中环的入口节点/链表中环的入口节点.iml" />
+      <module fileurl="file://$PROJECT_DIR$/链表中的节点每k个一组翻转/链表中的节点每k个一组翻转.iml" filepath="$PROJECT_DIR$/链表中的节点每k个一组翻转/链表中的节点每k个一组翻转.iml" />
     </modules>
   </component>
 </project>
