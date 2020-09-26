@@ -1,29 +1,38 @@
 import java.util.ArrayList;
-import java.util.Collections;
-//v1:  运行超时:您的程序未能在规定时间内运行结束，请检查是否循环有错或算法复杂度过大。
-// 用例通过率: 0.00% 运行时间: 2001ms 占用内存: 0KB
-//case通过率为0.00%
-public class Solution {
-    public static ArrayList<Integer> abc(int a, int b, int c) {
-        ArrayList<Integer> res = new ArrayList<>();
-        res.add(a); res.add(b); res.add(c);
-        Collections.sort(res);
+import java.util.Arrays;
 
-        return res;
-    }
-    public ArrayList<ArrayList<Integer>> threeSum(int[] num) {
+//v2: 答案正确:恭喜！您提交的程序通过了所有的测试用例 用例通过率: 100.00% 运行时间: 603ms 占用内存: 46504KB
+public class Solution {
+    public static ArrayList<ArrayList<Integer>> threeSum(int[] num) {
         ArrayList<ArrayList<Integer>> res = new ArrayList<>();
-        for (int i = 0; i < num.length; i++) {
-            for (int j = 0; j < num.length; j++) {
-                for (int k = 0; k < num.length; k++) {
-                    if ((num[i] + num[j] + num[k] == 0) && i != k && j != k && i!=j) {
-                        ArrayList<Integer> abc = abc(num[i], num[j], num[k]);
-                        if (!res.contains(abc))
-                            res.add(abc);
+        Arrays.sort(num);                                   //先对数组进行从小到大的排序，方便后面操作
+        for (int i = 0; i < num.length - 2; i++) {
+            if (i>0 && num[i]==num[i-1]) continue;          //这一行用于避免重复的三元组
+            int j = i + 1;                                  //从i的右边第一位开始往右遍历
+            int k = num.length - 1;                         //从数组的最右边开始往左遍历
+            while (j < k) {                                 //保证对当前的i，所有满足条件的组合都找出来
+                if (num[i] + num[k] + num[j] == 0) {        //符合条件
+                    res.add(new ArrayList<>(Arrays.asList(num[i], num[j], num[k])));    //添加进结果集
+                    j++;                                    //j指针往右走
+                    k--;                                    //k指针往左走  （由于是有序数组，所以这样一起移动是不会遗漏的）
+                    while (j < k && num[j] == num[j - 1]) { //排除重复的情况
+                        j++;
                     }
+                    while (j < k && k+1<num.length && num[k] == num[k + 1]) {   //排除重复的情况，而且要确保k不会越界
+                        k++;
+                    }
+                } else if (num[i] + num[k] + num[j] < 0) {  //和小于0，证明需要把指针往大的方向移动，所以j++
+                    j++;
+                } else {
+                    k--;                                    //和大于0，证明需要把指针往小的方向移动，所以k--
                 }
             }
         }
         return res;
+    }
+
+    public static void main(String[] args) {
+        int[] num = {-4,-2,-2,-2,0,1,2,2,2,3,3,4,4,6,6};
+        System.out.println(threeSum(num));
     }
 }
