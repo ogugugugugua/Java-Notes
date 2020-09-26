@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -49,17 +50,13 @@ public class Solution {
             while(size-- > 0){
                 temp = queue.poll();
                 layer.add(temp.val);
-                if(direction){
-                    if(temp.left!=null)
-                        queue.offer(temp.left);
-                    if(temp.right!=null)
-                        queue.offer(temp.right);
-                }else{
-                    if(temp.right!=null)
-                        queue.offer(temp.right);
-                    if(temp.left!=null)
-                        queue.offer(temp.left);
-                }
+                if(temp.left!=null)
+                    queue.offer(temp.left);
+                if(temp.right!=null)
+                    queue.offer(temp.right);
+            }
+            if(direction){
+                Collections.reverse(layer);     //反过来
             }
             res.add(layer);
         }
