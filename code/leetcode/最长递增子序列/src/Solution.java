@@ -2,6 +2,7 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collections;
 
+// not working
 public class Solution {
     public static void main(String[] args) {
         int[] arr = {1,2,8,6,4};
@@ -38,6 +39,7 @@ public class Solution {
         }
         System.out.println(Arrays.toString(maxLen));
 
+        //TODO
         int[] res = new int[Arrays.stream(maxLen).max().getAsInt()];
         int position = res.length;
         for (int i = maxLen.length-1; i >0 ; i--) {
