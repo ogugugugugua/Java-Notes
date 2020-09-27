@@ -10,6 +10,7 @@ public class Solution {
         System.out.println(lists);
         System.out.println(mergeKLists(lists));
     }
+    //找出当前ArrayList中链表头节点值最小的那个链表
     public static ListNode findMin(ArrayList<ListNode> lists) {
         ListNode min = new ListNode(Integer.MAX_VALUE);
         for (ListNode node : lists) {
@@ -20,6 +21,7 @@ public class Solution {
         return  min;
     }
 
+    //找出当前ArrayList有多少个非null链表
     public static int countListNode(ArrayList<ListNode> lists) {
         int num = 0;
         for (ListNode node : lists) {
@@ -36,13 +38,13 @@ public class Solution {
         ListNode cur = res;
 
         while (countListNode(lists) > 0) {
-            ListNode min = findMin(lists);
-            cur.next = min;
-            cur = cur.next;
-            ListNode temp = min.next;
-            int indexMin = lists.indexOf(min);
-            lists.set(indexMin, temp);
+            ListNode min = findMin(lists);      //找到最小的头结点所在链表
+            cur.next = min;                     //将其接到结果链表的末端
+            cur = cur.next;                     //当前节点往后移一位，方便下轮操作
+            ListNode temp = min.next;           //相当于把min链表的头砍掉
+            int indexMin = lists.indexOf(min);  //找到min所在ArrayList中的位置
+            lists.set(indexMin, temp);          //用砍掉头的链表替换原来位置的min链表
         }
-        return res.next;
+        return res.next;                        //返回结果
     }
 }
