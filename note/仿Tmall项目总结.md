@@ -252,7 +252,7 @@
 
 9. 在listCategory.jsp中进行数据的显示
 
-   ![思路图 ](https://stepimagewm.how2j.cn/6451.png)
+  ![未命名文件 (8)](https://user-images.githubusercontent.com/17522733/94555902-87970400-025c-11eb-9b81-b576a603de14.png)
 
 
 
