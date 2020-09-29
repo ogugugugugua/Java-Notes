@@ -45,7 +45,7 @@
 
 
 
-在建立表的时候，由于有依赖关系的存在，所以需要先建立被外键指向的表。
+在建立表的时候，由于有依赖关系的存在，所以需要先建立被外键指向的表，如Category和User。
 
 - 一个订单对应（包含）多个订单项   ！
 - 一个用户对应（包含）多个订单
@@ -84,7 +84,22 @@
 - 这样debug会更加容易：页面逻辑，跳转错误，浏览器兼容性问题，脚本错误，页面样式等问题，全部由前端工程师来负责。接口数据出错，数据没有提交成功，应答超时等问题，全部由后端工程师来解决。
 - 多页面应用同一套接口
 
+（3）
 
+- 目前的mybatis部分使用了MybatisGenerator这个工具，但是据我了解好像有一个mybatisplus框架更加优秀，可以去了解一下
+
+（4）
+
+- 外键约束导致无法删除数据
+- 在创建表结构的时候，有外键约束，导致当存在从表数据的时候，主表数据无法被删除。 为什么会这样呢？ 假设即使有从表数据，主表也允许被删除，那么那些从表数据就变成脏数据了。 对于这个问题通常有两种解决办法： 1. 使用级联删除。即删除主表的时候，从表自动删除。 这样做在技术上最简单，但是在业务上最危险，不推荐。 2. 删除有从表数据的主表时，提醒用户依然有从表数据，建议用户一条一条删除从表数据，再删除主表数据。 这样技术上无改动，业务上最安全。 建议采纳此种方案。
+
+（5）增加实际的支付功能
+
+（6）后台管理员登录模块。目前是通过访问指定的url去到后台
+
+（7）Redis集成进去，在 Service 这一层上面做，首次查询数据库，以后用缓存
+
+（8）集成es
 
 ---
 
@@ -249,3 +264,96 @@
 4. 通过categoryService删除数据
 5. 通过session获取ControllerContext然后获取分类图片位置，接着删除分类图片
 6. 客户端跳转到 admin_category_list
+
+## 重构
+
+### 分页方式重构
+
+- 为了提升开发效率，把当前的分页方式换成pageHelper分页插件来实现
+- 通过分页插件指定分页参数： `PageHelper.offsetPage(page.getStart(),page.getCount());`
+- 调用list() 获取对应分页的数据: `categoryService.list();`
+- 通过PageInfo获取总数: ` int total = (int) new PageInfo<>(cs).getTotal();`
+
+### MybatisGenerator
+
+- 在已经存在的数据库表结构基础上，通过工具，自动生成Category.java, CategoryMapper.java和CategoryMapper.xml等文件
+- 在resouces下创建generatorConfig.xml文件，其目的就是为了正确使用本插件而提供必要的配置信息
+- 指定链接数据库的账号和密码
+- 指定生成的pojo,mapper, xml文件的存放位置
+- 生成对应表及类名
+- MybatisGenerator会生成一个类叫做XXXXExample的。 它的作用是进行排序，条件查询的时候使用。
+
+## 各种后台管理
+
+在Property基础上增加了一个Category 字段。这个属性的用途将会在编辑功能讲解 步骤里进行使用。
+
+
+
+## 前台不需要登录
+
+- 创建了一个新的Controller: ForeController,专门用来对应前台页面的路径
+
+- 轮播部分，都是静态的页面，没有用到服务端数据
+
+- 无需登录：比如登录，注册本身，分类页面，查询，产品页面等
+
+- 需要登录：比如购买，加入购物车，查看购物车，结算页面，订单页面等
+
+- 登录：如果对象存在，则**把对象保存在session中**，并客户端跳转到首页"forehome"
+
+- 退出登录： 在session中去掉"user"，客户端跳转到首页:
+
+- 模态登录：需要先检查当前是否已经登录，由于对于已经登录的情况来说，user对象已经保存在了session中，所以只需要判断session中的User对象是否为空即可。如果为空的话，`$("#loginModal").modal('show'); `   点击登录按钮时，使用[imgAndInfo.jsp](https://how2j.cn/k/tmall_ssm/tmall_ssm-1532/1532.html#step6353) 页面中的ajax代码进行登录验证
+
+- 分类这个页面有排序功能，使用到了5个Comparator比较器`ProductAllComparator 综合比较器`等，他们都实现了`java.util.Comparator`的接口，在拿到列表之后进行排列：`Collections.sort(c.getProducts(),``new` `ProductReviewComparator());`
+
+- productsByCategory.jsp显示当前分类下的所有产品
+
+- 产品搜索：每个页面都包含了搜索的jsp，首页和搜索结果页包含的是search.jsp，其他页面包含的是simpleSearch.jsp。这两个页面都提供了一个form，提交数据keyword到foresearch这个路径。 导致ForeController.search()方法被调用。里面具体调用了`List<Product> ps= productService.search(keyword);`，再内层调用了mapper：
+
+  ```java
+  ProductExample example = new ProductExample();
+  example.createCriteria().andNameLike("%" + keyword + "%");
+  example.setOrderByClause("id desc");
+  List result = productMapper.selectByExample(example);
+  ```
+
+## 前台需要登录
+
+- 立即购买：会在OrderItem表里插入一条数据，这条数据会表示:
+  - \1. pid =844 购买的商品id
+    \2. oid = null, 这个订单项还没有生成对应的订单，即还在购物车中
+    \3. uid= 3，用户的id是3
+    \4. number=3, 购买了3件产品
+- 访问的地址 /forebuyone 导致ForeController.buyone()方法被调用
+  \1. 获取参数pid
+  \2. 获取参数num
+  \3. 根据pid获取产品对象p
+  \4. 从session中获取用户对象user
+- 立即购买：新增订单项OrderItem需要先从session中获取用户id，查询其没有生成订单的订单项集合，遍历这个集合。如果存在则修改数量；否则根据jsp获取参数pid和数量num，新建订单项
+- 在结算页面：把订单项集合放在session的属性 "ois" 上。把总价格放在 model的属性 "total" 上。
+- 加入购物车：逻辑和立即购买雷同，但是返回一个字符串即可，不需要跳转页面。
+- 查看购物车：需要用session判断是否登录。获取为这个用户关联的订单项集合 ois，把ois放在model中，服务端跳转到cart.jsp
+- 登录状态拦截器LoginInterceptor：继承了HandlerInterceptorAdapter，准备字符串数组 noNeedAuthPage，存放哪些不需要登录也能访问的路径；对于某个访问路径，如果不在，那么就需要进行是否登录验证，然后从session中取出User对象进行判断，如果对象不存在就客户端跳转到login.jsp
+- 提交订单后，在数据库中生成一条Order记录。
+  不仅如此，订单项的oid字段也会被设置为这条Order记录的id。所以需要进行事务管理。在OrderServiceImpl中的add函数上增加这个`@Transactional(propagation= Propagation.REQUIRED,rollbackForClassName="Exception")`
+- 在我的订单页中，通过session获得User的Id，查询该用户所有状态不是delete的订单集合os，放在model上，服务器跳转
+
+## 应用到的设计模式
+
+- MVC贯穿整个后台和前台开发
+- 模块化的jsp设计
+
+## 常见提问：
+
+1. 服务端跳转和客户端跳转的使用场景：
+
+   如果有数据要传递到下一个页面则使用服务端跳转，否则使用客户端跳转
+
+   比如： return "admin/listCategory" 用的是前端控制器的转发，服务器跳转，从查询页面跳转到编辑页面，请求域中的数据不丢失
+
+   return "redirect:/admin_category_list"用的是重定向关键字，重新发起请求，客户端跳转
+
+   **总结**来说：一般来说增删改用重定向，查询用转发
+
+2. 
