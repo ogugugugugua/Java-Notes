@@ -29,7 +29,7 @@
 
 ## 数据库设计
 
-![表关系图](https://stepimagewm.how2j.cn/6041.png)
+![6041](https://user-images.githubusercontent.com/17522733/94553782-4fda8d00-0259-11eb-8fa2-50f9be41e5bb.png)
 
 |     表名      |  中文定义  | 含义                                                         |
 | :-----------: | :--------: | ------------------------------------------------------------ |
@@ -252,7 +252,7 @@
 
 9. 在listCategory.jsp中进行数据的显示
 
-   ![思路图 ](https://stepimagewm.how2j.cn/6451.png)
+  ![未命名文件 (8)](https://user-images.githubusercontent.com/17522733/94555902-87970400-025c-11eb-9b81-b576a603de14.png)
 
 
 
