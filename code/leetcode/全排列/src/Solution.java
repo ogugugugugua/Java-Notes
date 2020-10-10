@@ -1,5 +1,11 @@
 import java.util.*;
 
+/**
+ * 状态变量：
+ * 1. 递归到第几层Depth
+ * 2. 已经选了哪些数path
+ * 3. 布尔数组used
+ */
 public class Solution {
 
     public List<List<Integer>> permute(int[] nums) {
