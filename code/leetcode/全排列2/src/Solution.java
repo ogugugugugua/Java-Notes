@@ -25,7 +25,7 @@ public class Solution {
             res.add(new ArrayList<>(path));
             return;
         }
-        A: for (int i = 0; i < len; i++) {
+        for (int i = 0; i < len; i++) {
             if (!used[i]) {
                 path.add(nums[i]);
                 used[i] = true;
