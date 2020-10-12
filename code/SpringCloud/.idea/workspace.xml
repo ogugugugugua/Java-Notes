@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="022bd422-065a-44e5-9230-f0e9a9e60f79" name="Default Changelist" comment="" />
+    <list default="true" id="022bd422-065a-44e5-9230-f0e9a9e60f79" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../leetcode/二分查找/src/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodingExercises/ChainList/01/out/production/01/yulin/main/ChainNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodingExercises/ChainList/01/out/production/01/yulin/test/TestAddNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodingExercises/ChainList/01/src/yulin/main/ChainNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodingExercises/ChainList/01/src/yulin/test/TestAddNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-provider-payment8001/src/main/java/com/yulin/springcloud/test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leetcode/设计LRU缓存结构/src/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/设计LRU缓存结构/src/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../note/JVM.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../note/JVM.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,6 +118,8 @@
       <workItem from="1599239012257" duration="22000" />
       <workItem from="1599239043007" duration="344000" />
       <workItem from="1599239396805" duration="1965000" />
+      <workItem from="1599726086309" duration="1210000" />
+      <workItem from="1600376708062" duration="38000" />
     </task>
     <task id="LOCAL-00001" summary="gitignore">
       <created>1599229022271</created>
@@ -197,10 +208,10 @@
     </state>
     <state x="64" y="110" width="1479" height="716" key="SettingsEditor/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599239033727" />
     <state x="1968" y="92" width="1203" height="716" key="SettingsEditor/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1599243985678" />
-    <state x="640" y="364" key="com.intellij.ide.util.TipDialog" timestamp="1599239398334">
+    <state x="640" y="364" key="com.intellij.ide.util.TipDialog" timestamp="1600376710143">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="640" y="364" key="com.intellij.ide.util.TipDialog/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599239398334" />
+    <state x="640" y="364" key="com.intellij.ide.util.TipDialog/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1600376710143" />
     <state x="2109" y="195" key="new project wizard" timestamp="1599244010924">
       <screen x="1920" y="0" width="1440" height="900" />
     </state>
