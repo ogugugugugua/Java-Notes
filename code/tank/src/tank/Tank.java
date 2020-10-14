@@ -62,6 +62,6 @@ public class Tank {
     }
 
     public void fire() {
-        windowFrame.bullet = new Bullet(x,y,dir);
+        windowFrame.bulletList.add(new Bullet(x, y, dir));
     }
 }
