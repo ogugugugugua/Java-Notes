@@ -8,7 +8,7 @@ import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 public class windowFrame extends Frame {
-    private static final int GAME_WIDTH = 800, GAME_HEIGHT = 600;
+    static final int GAME_WIDTH = 800, GAME_HEIGHT = 600;
     Tank tank = new Tank(200, 200, Dir.LEFT,this);
     ArrayList<Bullet> bulletList = new ArrayList<>();
 
@@ -30,8 +30,8 @@ public class windowFrame extends Frame {
     @Override
     public void paint(Graphics g) {
         tank.paint(g);
-        for (Bullet bullet : bulletList) {
-            bullet.paint(g);
+        for (int i = 0; i < bulletList.size(); i++) {
+            bulletList.get(i).paint(g);
         }
     }
 
