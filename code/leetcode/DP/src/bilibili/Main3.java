@@ -1,4 +1,5 @@
-import javax.xml.stream.FactoryConfigurationError;
+package bilibili;
+
 import java.util.Scanner;
 
 public class Main3 {
