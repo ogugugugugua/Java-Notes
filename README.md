@@ -1,3 +1,8 @@
 # Java-Notes
-## Notes about the learning process of Java
 
+```
+|-- code:代码
+|-- note:笔记
+|-- pics:笔记图片
+|-- pdf:相关文件
+```
