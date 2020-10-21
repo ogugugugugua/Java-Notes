@@ -1,4 +1,4 @@
-package 单串.最长上升子序列;
+package 单串.最经典单串LIS系列.最长上升子序列;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package 单串.最长递增子序列的个数;
+package 单串.最经典单串LIS系列.最长递增子序列的个数;
 
 import java.util.Arrays;
 
