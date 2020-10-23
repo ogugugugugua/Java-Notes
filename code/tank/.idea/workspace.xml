@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16d6af97-b217-4cdb-a40c-342be2e6ff08" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/out/production/tank/tank/Bullet$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tank/tank/Bullet$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tank/tank/Bullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tank/tank/Bullet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tank/tank/Tank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tank/tank/Tank.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tank/tank/windowFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tank/tank/windowFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tank/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tank/Bullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tank/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tank/Tank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tank/windowFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tank/windowFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../pics/2" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,6 +86,7 @@
       <updated>1602667762467</updated>
       <workItem from="1602667767506" duration="5613000" />
       <workItem from="1602682114887" duration="5975000" />
+      <workItem from="1603095887292" duration="601000" />
     </task>
     <servers />
   </component>
