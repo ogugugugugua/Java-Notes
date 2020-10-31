@@ -1,9 +1,9 @@
-package com.interviewExercises;
+package com.interviewExercises.ex1;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
+
 //使用两个countdownlatch，分别控制两个线程的执行
 public class T06_CountDownLatch {
     List<Integer> list = new ArrayList<>();

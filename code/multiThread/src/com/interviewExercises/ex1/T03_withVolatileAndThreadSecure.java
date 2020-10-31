@@ -1,14 +1,16 @@
-package com.interviewExercises;
+package com.interviewExercises.ex1;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+//可以用，但是有很奇怪的问题
+public class T03_withVolatileAndThreadSecure {
+    volatile List<Integer> list = Collections.synchronizedList(new ArrayList<>());
 
-public class T01_withoutVolatile {
-    List<Integer> list = new ArrayList<>();
     public void add(int num) {
         System.out.println("add");
-        list.add(num);
+        this.list.add(num);
     }
 
     public int size() {
@@ -16,7 +18,7 @@ public class T01_withoutVolatile {
     }
 
     public static void main(String[] args) {
-        T01_withoutVolatile c = new T01_withoutVolatile();
+        T02_withVolatile c = new T02_withVolatile();
         new Thread(() -> {
             for (int i = 0; i < 10; i++) {
                 c.add(i);

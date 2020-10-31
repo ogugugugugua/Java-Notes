@@ -1,4 +1,4 @@
-package com.interviewExercises;
+package com.interviewExercises.ex1;
 
 import java.util.ArrayList;
 import java.util.List;
