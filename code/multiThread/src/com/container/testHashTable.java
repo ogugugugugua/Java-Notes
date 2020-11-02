@@ -1,0 +1,56 @@
+package com.container;
+
+import java.util.*;
+class Constants{
+    static final int COUNT = 1000000;
+    static final int THREAD_COUNT = 100;
+}
+public class testHashTable {
+    static Hashtable<UUID, UUID> hashtable = new Hashtable<>();
+    static int count = Constants.COUNT;
+    static UUID[] keys = new UUID[count];
+    static UUID[] values = new UUID[count];
+    static final int THREAD_COUNT = Constants.THREAD_COUNT;
+    static {
+        for (int i = 0; i < count; i++) {
+            keys[i] = UUID.randomUUID();
+            values[i] = UUID.randomUUID();
+        }
+    }
+    static class MyThread extends Thread{
+        int start;
+        int gap = count/THREAD_COUNT;
+        public MyThread(int start) {
+            this.start = start;
+        }
+
+        @Override
+        public void run() {
+            for (int i = start; i < start + gap; i++) {
+                hashtable.put(keys[i], values[i]);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("HashTable");
+        long start = System.currentTimeMillis();
+        Thread[] threads = new Thread[THREAD_COUNT];
+        for (int i = 0; i < threads.length; i++) {
+            threads[i] = new MyThread(i*(count/THREAD_COUNT));
+        }
+        for (Thread thread : threads) {
+            thread.start();
+        }
+        for (Thread thread : threads) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        long end = System.currentTimeMillis();
+        System.out.println(end - start);
+        System.out.println(hashtable.size());
+    }
+}
