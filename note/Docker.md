@@ -36,7 +36,7 @@ docker run [可选参数] image
 
 测试上述功能：
 
-![image-20210130164535734](C:\Users\XIE Yulin\AppData\Roaming\Typora\typora-user-images\image-20210130164535734.png)
+![image-20210130164535734](https://user-images.githubusercontent.com/17522733/106366630-68f56680-633d-11eb-83fb-4ed92ea6b099.png)
 
 
 
@@ -46,7 +46,7 @@ docker run [可选参数] image
 docker ps -a
 ```
 
-![image-20210130164931205](C:\Users\XIE Yulin\AppData\Roaming\Typora\typora-user-images\image-20210130164931205.png)
+![image-20210130164931205](https://user-images.githubusercontent.com/17522733/106366632-701c7480-633d-11eb-8a89-6732c5a105bd.png)
 
 ## 退出容器
 
