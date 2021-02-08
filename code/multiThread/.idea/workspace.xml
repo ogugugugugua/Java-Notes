@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53193a70-4fa7-4309-963f-e04d07b4cdc7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../CodingExercises/ChainList/01/out/production/01/yulin/main/ChainNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingExercises/ChainList/01/out/production/01/yulin/test/TestAddNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingExercises/ChainList/01/src/yulin/main/ChainNode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodingExercises/ChainList/01/src/yulin/test/TestAddNode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leetcode/HUAWEI_09_09_2020/src/面试准备/twinNumbers.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/HUAWEI_09_09_2020/src/面试准备/twinNumbers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leetcode/两个链表生成相加链表/src/MySolution.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/两个链表生成相加链表/src/MySolution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leetcode/两个链表生成相加链表/src/MySolution2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/两个链表生成相加链表/src/MySolution2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leetcode/两个链表生成相加链表/src/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/两个链表生成相加链表/src/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leetcode/DP/src/单串/打家劫舍系列/删除与获得点数/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/DP/src/单串/打家劫舍系列/删除与获得点数/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leetcode/out/production/DP/单串/打家劫舍系列/打家劫舍2/Solution2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/consumerAndProducer/buffer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/consumerAndProducer/buffer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/consumerAndProducer/consumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/consumerAndProducer/consumer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/consumerAndProducer/producer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/consumerAndProducer/producer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multiThread/com/consumerAndProducer/useLockCondition.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multiThread/com/consumerAndProducer/useLockCondition.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/CAS/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/CAS/test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../pics/2" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +24,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="ProjectId" id="1TNO3Y1JON6XWNyJudjPyVRMZ4c" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -42,15 +41,21 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573078928275" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../pics" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
   </component>
-  <component name="RunManager" selected="Application.test">
-    <configuration name="method4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.sequentialExecution.method4" />
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\javaNotes\code\multiThread\src\com\interviewExercises\1" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.testForkJoinPool">
+    <configuration name="testCachedPool" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.threadPool.testCachedPool" />
       <module name="multiThread" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.company.sequentialExecution.*" />
+          <option name="PATTERN" value="com.threadPool.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -58,12 +63,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="method5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.sequentialExecution.method5" />
+    <configuration name="testCompletableFuture" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.threadPool.testCompletableFuture" />
       <module name="multiThread" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.company.sequentialExecution.*" />
+          <option name="PATTERN" value="com.threadPool.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -71,12 +76,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.CAS.test" />
+    <configuration name="testForkJoinPool" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.threadPool.testForkJoinPool" />
       <module name="multiThread" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.CAS.*" />
+          <option name="PATTERN" value="com.threadPool.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -84,12 +89,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="useLockCondition" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.consumerAndProducer.useLockCondition" />
+    <configuration name="testFutureTask" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.threadPool.testFutureTask" />
       <module name="multiThread" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.consumerAndProducer.*" />
+          <option name="PATTERN" value="com.threadPool.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -97,12 +102,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="useSynchronizedWait" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.consumerAndProducer.useSynchronizedWait" />
+    <configuration name="testSingleThreadExecutor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.threadPool.testSingleThreadExecutor" />
       <module name="multiThread" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.consumerAndProducer.*" />
+          <option name="PATTERN" value="com.threadPool.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -111,19 +116,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.method4" />
-      <item itemvalue="Application.method5" />
-      <item itemvalue="Application.useSynchronizedWait" />
-      <item itemvalue="Application.useLockCondition" />
-      <item itemvalue="Application.test" />
+      <item itemvalue="Application.testFutureTask" />
+      <item itemvalue="Application.testCompletableFuture" />
+      <item itemvalue="Application.testSingleThreadExecutor" />
+      <item itemvalue="Application.testCachedPool" />
+      <item itemvalue="Application.testForkJoinPool" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.test" />
-        <item itemvalue="Application.useLockCondition" />
-        <item itemvalue="Application.useSynchronizedWait" />
-        <item itemvalue="Application.method4" />
-        <item itemvalue="Application.method5" />
+        <item itemvalue="Application.testForkJoinPool" />
+        <item itemvalue="Application.testCachedPool" />
+        <item itemvalue="Application.testSingleThreadExecutor" />
+        <item itemvalue="Application.testCompletableFuture" />
+        <item itemvalue="Application.testFutureTask" />
       </list>
     </recent_temporary>
   </component>
@@ -154,6 +159,12 @@
       <workItem from="1600856631419" duration="599000" />
       <workItem from="1600934963580" duration="666000" />
       <workItem from="1601024959944" duration="7000" />
+      <workItem from="1604138388779" duration="16419000" />
+      <workItem from="1604228053926" duration="4445000" />
+      <workItem from="1604316167679" duration="18762000" />
+      <workItem from="1604413335631" duration="11610000" />
+      <workItem from="1604481760771" duration="655000" />
+      <workItem from="1604486737230" duration="1734000" />
     </task>
     <servers />
   </component>
@@ -174,10 +185,11 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="765" y="249" key="#com.intellij.ide.util.MemberChooser" timestamp="1600726085045">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="2494" y="208" key="#com.intellij.ide.util.MemberChooser" timestamp="1604443641468">
+      <screen x="1920" y="0" width="1440" height="900" />
     </state>
-    <state x="765" y="249" key="#com.intellij.ide.util.MemberChooser/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1600726085045" />
+    <state x="765" y="249" key="#com.intellij.ide.util.MemberChooser/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604343940967" />
+    <state x="2494" y="208" key="#com.intellij.ide.util.MemberChooser/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1604443641468" />
     <state x="806" y="429" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1600677325766">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -186,45 +198,53 @@
       <screen x="1920" y="0" width="1440" height="900" />
     </state>
     <state x="2024" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1600706596815" />
-    <state width="1877" height="221" key="GridCell.Tab.0.bottom" timestamp="1600813727049">
+    <state x="638" y="403" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1604347448189">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.0.bottom/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1600813727049" />
-    <state width="1397" height="104" key="GridCell.Tab.0.bottom/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1600711743980" />
-    <state width="1877" height="221" key="GridCell.Tab.0.center" timestamp="1600813727049">
+    <state x="638" y="403" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604347448189" />
+    <state x="740" y="266" key="FileChooserDialogImpl" timestamp="1604347547389">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.0.center/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1600813727049" />
-    <state width="1397" height="104" key="GridCell.Tab.0.center/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1600711743980" />
-    <state width="1877" height="221" key="GridCell.Tab.0.left" timestamp="1600813727049">
+    <state x="740" y="266" key="FileChooserDialogImpl/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604347547389" />
+    <state width="1397" height="167" key="GridCell.Tab.0.bottom" timestamp="1604444182961">
+      <screen x="1920" y="0" width="1440" height="900" />
+    </state>
+    <state width="1877" height="223" key="GridCell.Tab.0.bottom/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604347148206" />
+    <state width="1397" height="167" key="GridCell.Tab.0.bottom/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1604444182961" />
+    <state width="1397" height="167" key="GridCell.Tab.0.center" timestamp="1604444182961">
+      <screen x="1920" y="0" width="1440" height="900" />
+    </state>
+    <state width="1877" height="223" key="GridCell.Tab.0.center/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604347148206" />
+    <state width="1397" height="167" key="GridCell.Tab.0.center/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1604444182961" />
+    <state width="1397" height="167" key="GridCell.Tab.0.left" timestamp="1604444182961">
+      <screen x="1920" y="0" width="1440" height="900" />
+    </state>
+    <state width="1877" height="223" key="GridCell.Tab.0.left/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604347148206" />
+    <state width="1397" height="167" key="GridCell.Tab.0.left/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1604444182961" />
+    <state width="1397" height="167" key="GridCell.Tab.0.right" timestamp="1604444182961">
+      <screen x="1920" y="0" width="1440" height="900" />
+    </state>
+    <state width="1877" height="223" key="GridCell.Tab.0.right/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604347148206" />
+    <state width="1397" height="167" key="GridCell.Tab.0.right/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1604444182961" />
+    <state width="1877" height="278" key="GridCell.Tab.1.bottom" timestamp="1604335386723">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.0.left/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1600813727049" />
-    <state width="1397" height="104" key="GridCell.Tab.0.left/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1600711743980" />
-    <state width="1877" height="221" key="GridCell.Tab.0.right" timestamp="1600813727049">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1877" height="221" key="GridCell.Tab.0.right/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1600813727049" />
-    <state width="1397" height="104" key="GridCell.Tab.0.right/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1600711743980" />
-    <state width="1397" height="104" key="GridCell.Tab.1.bottom" timestamp="1600726393158">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1397" height="104" key="GridCell.Tab.1.bottom/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1600726393158" />
+    <state width="1877" height="278" key="GridCell.Tab.1.bottom/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604335386723" />
     <state width="1397" height="104" key="GridCell.Tab.1.bottom/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1600711743980" />
-    <state width="1397" height="104" key="GridCell.Tab.1.center" timestamp="1600726393158">
+    <state width="1877" height="278" key="GridCell.Tab.1.center" timestamp="1604335386723">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1397" height="104" key="GridCell.Tab.1.center/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1600726393158" />
+    <state width="1877" height="278" key="GridCell.Tab.1.center/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604335386723" />
     <state width="1397" height="104" key="GridCell.Tab.1.center/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1600711743980" />
-    <state width="1397" height="104" key="GridCell.Tab.1.left" timestamp="1600726393158">
+    <state width="1877" height="278" key="GridCell.Tab.1.left" timestamp="1604335386723">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1397" height="104" key="GridCell.Tab.1.left/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1600726393158" />
+    <state width="1877" height="278" key="GridCell.Tab.1.left/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604335386723" />
     <state width="1397" height="104" key="GridCell.Tab.1.left/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1600711743980" />
-    <state width="1397" height="104" key="GridCell.Tab.1.right" timestamp="1600726393158">
+    <state width="1877" height="278" key="GridCell.Tab.1.right" timestamp="1604335386723">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1397" height="104" key="GridCell.Tab.1.right/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1600726393158" />
+    <state width="1877" height="278" key="GridCell.Tab.1.right/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604335386723" />
     <state width="1397" height="104" key="GridCell.Tab.1.right/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1600711743980" />
     <state width="1397" height="467" key="GridCell.Tab.2.bottom" timestamp="1600711738212">
       <screen x="1920" y="0" width="1440" height="900" />
@@ -242,13 +262,30 @@
       <screen x="1920" y="0" width="1440" height="900" />
     </state>
     <state width="1397" height="467" key="GridCell.Tab.2.right/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1600711738212" />
-    <state x="2320" y="274" key="com.intellij.ide.util.TipDialog" timestamp="1600811889310">
-      <screen x="1920" y="0" width="1440" height="900" />
+    <state x="461" y="182" key="SettingsEditor" timestamp="1604486793256">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state x="461" y="182" key="SettingsEditor/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604486793256" />
+    <state x="533" y="329" key="com.intellij.ide.util.TipDialog" timestamp="1604486745731">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="533" y="329" key="com.intellij.ide.util.TipDialog/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604486745731" />
     <state x="2320" y="274" key="com.intellij.ide.util.TipDialog/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1600811889310" />
-    <state x="2303" y="190" width="672" height="678" key="search.everywhere.popup" timestamp="1600689427385">
-      <screen x="1920" y="0" width="1440" height="900" />
+    <state x="511" y="228" width="896" height="814" key="search.everywhere.popup" timestamp="1604334061127">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state x="511" y="228" width="896" height="814" key="search.everywhere.popup/1920.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604334061127" />
     <state x="2303" y="190" width="672" height="678" key="search.everywhere.popup/1920.0.1440.900/0.0.1920.1080@1920.0.1440.900" timestamp="1600689427385" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/interviewExercises/ex2/T01_Condition.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
