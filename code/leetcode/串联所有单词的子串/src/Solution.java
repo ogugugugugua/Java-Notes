@@ -9,13 +9,13 @@ public class Solution {
         return sum == len-1;
     }
 
-    public boolean allChecked(Map<String, Integer> map) {
-        for (Integer i : map.values()) {
-            if (i!=0) {
-                return false;
-            }
-        }
-    }
+//    public boolean allChecked(Map<String, Integer> map) {
+//        for (Integer i : map.values()) {
+//            if (i!=0) {
+//                return false;
+//            }
+//        }
+//    }
     public List<Integer> findSubstring(String s, String[] words) {
         int left = 0, right = 0, start = 0;
         List<Integer> result = new ArrayList<>();
