@@ -17,7 +17,7 @@
 	<properties>
 		<maven.test.failure.ignore>true</maven.test.failure.ignore>
 		<spring.framework.version>3.1.4.RELEASE</spring.framework.version>
-		<spring.amqp.version>2.2.3.RELEASE</spring.amqp.version>
+		<spring.amqp.version>2.2.19.RELEASE</spring.amqp.version>
 	</properties>	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
