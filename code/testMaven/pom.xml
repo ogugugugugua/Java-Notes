@@ -13,7 +13,7 @@
     <name>testMaven Tapestry 5 Application</name>
 	<properties>
         <java.version>1.8</java.version>
-        <tapestry-version>5.5.0-beta-3</tapestry-version>
+        <tapestry-version>5.8.2</tapestry-version>
         <tapestry-testify-version>1.0.4</tapestry-testify-version>
         <tapestry-xpath-version>1.0.1</tapestry-xpath-version>
         <jackson-version>2.10.1</jackson-version>
